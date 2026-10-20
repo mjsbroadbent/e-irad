@@ -29,7 +29,7 @@ DNS: apex A records 185.199.108.153, .109.153, .110.153, .111.153 (AAAA 2606:50c
   `mark-white.svg`, `mark-tile.svg`, `mark-tile-192/512.png`; `favicon.ico`, `favicon-32.png`,
   `apple-touch-icon.png`; `manifest.webmanifest`), as on iradgov.org. It is used like a federal signature: the
   crimson mark plus "Government of the Irad Special Economic Zone" in the header (links to iradgov.org) and the white
-  mark in the footer. The product logo is `assets/logo.svg` (Oct 2026): a blue tile with a crimson base, a drawn white "e" and the gold Polaris star from the flag; used in the header (42 px) and footer (30 px). The favicon and app icons stay the government mark. The circular seal is not used on e-Irad.
+  mark in the footer. The product logo is `assets/logo.svg` (Oct 2026): a blue tile with a crimson base, a drawn white "e" and the gold Polaris star from the flag; used in the header (42 px) and footer (30 px). Since Oct 2026 it is also the tab icon (`favicon.ico`, `favicon-32.png`, SVG icon link); the phone home-screen icons (`apple-touch-icon.png`, `mark-tile-192/512.png` in the manifest) and the share image stay the government mark. The circular seal is not used on e-Irad.
 
 ## Structure
 
