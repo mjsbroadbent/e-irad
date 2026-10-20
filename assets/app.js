@@ -64,7 +64,7 @@
       '<div class="topline"><div class="wrap"><span class="welcome">' + esc(t("welcome")) + ' <a href="/faq.html">' + esc(t("welcomeMore")) + '</a></span>' +
       '<span class="langs" role="group" aria-label="' + esc(t("lang")) + '">' + LANG_ORDER.map(function (l) { return '<a href="?lang=' + l + '" data-lang="' + l + '" lang="' + I.htmlLang[l] + '"' + (l === LANG ? ' aria-current="true"' : "") + ">" + esc(I.langs[l]) + "</a>"; }).join('<span aria-hidden="true">|</span>') + "</span></div></div>" +
       '<header class="head sec-' + sec + '"><div class="wrap">' + (nav.length ? '<button class="burger" type="button" aria-expanded="false" aria-controls="mainnav"><span class="vh">' + esc(t("menu")) + '</span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>' : "") +
-      '<a class="brand" href="/"><span class="logo" aria-hidden="true">e</span><span class="bt"><b>e-Irad</b><small>' + esc(t("portalSub")) + "</small></span></a>" +
+      '<a class="brand" href="/"><img class="logo" src="/assets/logo.svg" alt="" width="42" height="42"><span class="bt"><b>e-Irad</b><small>' + esc(t("portalSub")) + "</small></span></a>" +
       '<a class="govlink" href="' + GOV + '" title="' + esc(t("footGov")) + '">' + MARK + "<span><b>" + esc(t("gov")) + "</b><small>" + esc(t("dic")) + "</small></span></a></div>" +
       (sec === "land" ? '<div class="landrule"></div>' :
       '<nav class="mainnav" aria-label="e-Irad"><div class="wrap"><ul id="mainnav">' +
@@ -78,7 +78,7 @@
       [["UNMI", { en: "Trade facilitation programme", ir: "Sooda jeñildetüü programması", ru: "Программа содействия торговле" }, "un"], ["CCI", { en: "Chamber of Commerce and Industry of Irad", ir: "Irad sooda-önör jay palatası", ru: "Торгово-промышленная палата Ирада" }, "cci"], ["IPO", { en: "Investment Promotion Office", ir: "Investitsiyalardı ilgeriletüü keñsesi", ru: "Офис содействия инвестициям" }, "ipo"], ["BS", { en: "Customs Service", ir: "Bajı kızmatı", ru: "Таможенная служба" }, "cus"], ["TSU", { en: "Talas State University", ir: "Talas mamlekettik universiteti", ru: "Таласский государственный университет" }, "tsu"]].map(function (p) {
         return '<li class="pl pl-' + p[2] + '"><span class="plm">' + esc(p[0]) + "</span><span>" + esc(L(p[1])) + "</span></li>";
       }).join("") + '</ul><p class="tiny">' + esc(t("credit")) + "</p></div></div>" : "") +
-      '<div class="wrap"><div class="fcols"><div><div class="brand small"><span class="logo">e</span><b>e-Irad</b></div><p>' + esc(t("footAbout")) + "</p><p>" + esc(t("footAddr")) + '<br>+996-39-2-27-14-14 · <a href="mailto:help@e-irad.org">help@e-irad.org</a><br>' + esc(t("footHours")) + "</p></div>" +
+      '<div class="wrap"><div class="fcols"><div><div class="brand small"><img class="logo" src="/assets/logo.svg" alt="" width="30" height="30"><b>e-Irad</b></div><p>' + esc(t("footAbout")) + "</p><p>" + esc(t("footAddr")) + '<br>+996-39-2-27-14-14 · <a href="mailto:help@e-irad.org">help@e-irad.org</a><br>' + esc(t("footHours")) + "</p></div>" +
       "<div><h4>e-Irad</h4><ul>" +
       '<li><a href="/business.html">' + esc(t("forBiz")) + '</a></li><li><a href="/procedures.html">' + esc(t("nav_proc")) + '</a></li><li><a href="/laws.html">' + esc(t("nav_laws")) + "</a></li>" +
       '<li><a href="/citizens.html">' + esc(t("forCit")) + '</a></li><li><a href="/login.html">' + esc(t("nav_login")) + "</a></li></ul></div>" +

@@ -41,9 +41,8 @@ p { margin: 0 0 .8em; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; margin-right: auto; min-width: 0; }
 .brand b { font-size: 1.6rem; display: block; line-height: 1; color: var(--blue); letter-spacing: -.02em; font-weight: 700; }
 .brand small { display: block; font-size: .76rem; color: var(--muted); margin-top: 3px; }
-.logo { width: 42px; height: 42px; border-radius: 4px; background: var(--blue); color: #fff; font: 700 1.7rem/42px var(--font); text-align: center; position: relative; flex: none; border-bottom: 4px solid var(--crimson); }
-.logo::after { content: ""; position: absolute; top: 6px; right: 6px; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
-.brand.small b { font-size: 1.1rem; color: #fff; } .brand.small .logo { width: 30px; height: 30px; line-height: 30px; font-size: 1.15rem; border-bottom-width: 3px; }
+.logo { width: 42px; height: 42px; flex: none; display: block; }
+.brand.small b { font-size: 1.1rem; color: #fff; } .brand.small .logo { width: 30px; height: 30px; }
 .govlink { display: flex; align-items: center; gap: 7px; text-decoration: none; color: var(--ink); border-left: 1px solid var(--line); padding-left: 12px; max-width: 300px; }
 .govlink:hover { color: var(--ink); }
 .govlink:hover b { text-decoration: underline; }
@@ -387,7 +386,7 @@ ul.plain li { margin: 3px 0; }
   .head > .wrap { min-height: 58px; gap: 8px; }
   .brand b { font-size: 1.35rem; }
   .brand small { font-size: .7rem; }
-  .logo { width: 36px; height: 36px; line-height: 36px; font-size: 1.4rem; }
+  .logo { width: 36px; height: 36px; }
   .mainnav > .wrap { flex-direction: column; gap: 0; padding: 0; }
   .mainnav ul { display: none; flex-direction: column; order: 2; }
   .head.open .mainnav ul { display: flex; }
