@@ -6,8 +6,20 @@
   "background_color": "#e9ecef",
   "theme_color": "#1f5a96",
   "icons": [
-    { "src": "/assets/mark-tile-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/assets/mark-tile-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "/assets/mark-tile.svg", "sizes": "any", "type": "image/svg+xml" }
+    {
+      "src": "/assets/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
   ]
 }

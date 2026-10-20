@@ -25,11 +25,13 @@ DNS: apex A records 185.199.108.153, .109.153, .110.153, .111.153 (AAAA 2606:50c
 - Look (Oct 2026 rework): a deliberately dated institutional portal, grey page, white header, blue nav bar and blue
   panel headers, small system type, a three-slide hero (photos in `assets/img/hero-*.jpg`, 1536×512, with a dark gradient on the left for the text) with a
   pill search bar, four blue tabs, and a crimson rule at the top as the only nod to iradgov.org.
-- Icons: the government mark, the horse and star cut from the flag (crimson `#aa0000`; `assets/mark.svg`,
-  `mark-white.svg`, `mark-tile.svg`, `mark-tile-192/512.png`; `favicon.ico`, `favicon-32.png`,
-  `apple-touch-icon.png`; `manifest.webmanifest`), as on iradgov.org. It is used like a federal signature: the
-  crimson mark plus "Government of the Irad Special Economic Zone" in the header (links to iradgov.org) and the white
-  mark in the footer. The product logo is `assets/logo.svg` (Oct 2026): a blue tile with a crimson base, a drawn white "e" and the gold Polaris star from the flag; used in the header (42 px) and footer (30 px). Since Oct 2026 it is also the tab icon (`favicon.ico`, `favicon-32.png`, SVG icon link); the phone home-screen icons (`apple-touch-icon.png`, `mark-tile-192/512.png` in the manifest) and the share image stay the government mark. The circular seal is not used on e-Irad.
+- Logo and icons: the product logo is `assets/logo.svg` (Oct 2026): a blue tile with a crimson base, a drawn white
+  "e" and the gold Polaris star from the flag; header (42 px) and footer (30 px). It is also every site icon:
+  `favicon.ico`, `favicon-32.png`, the SVG icon link, `apple-touch-icon.png` (square-cornered), `assets/logo-192.png`
+  and `logo-512.png` (`manifest.webmanifest`) and the share image (`og:image`, logo-512).
+- Government mark: the horse and star cut from the flag (crimson `#aa0000`; `assets/mark.svg`, `mark-white.svg`), as
+  on iradgov.org, used only as the link to iradgov.org, like a federal signature: the crimson mark plus "Government
+  of the Irad Special Economic Zone" in the header and the white mark in the footer. The circular seal is not used on e-Irad.
 
 ## Structure
 
