@@ -10,10 +10,13 @@ DNS: apex A records 185.199.108.153, .109.153, .110.153, .111.153 (AAAA 2606:50c
 
 ## Safety rules (keep them)
 
-- Nothing is collected. There is no form `action`, no analytics, no password field anywhere. The only network request
-  the scripts make is a GET of the site's own `data/procedures.json` (`assets/guide.js`). Every form is handled in
+- Nothing typed into the site is collected. There is no form `action` and no password field anywhere. The site's own
+  scripts make one network request, a GET of `data/procedures.json` (`assets/guide.js`). Every form is handled in
   `assets/app.js` in the browser and its result is worked out from the input (a hash), so the same number always gives
-  the same answer. No external fonts or scripts: the page uses system fonts.
+  the same answer. No external fonts: the page uses system fonts.
+- The one outside script is the shared GoatCounter page counter (irad.goatcounter.com, as on every Irad site; Oct
+  2026). It records only the page address (host + path), referrer, browser, screen size and country, never anything
+  typed into a form; e-Irad's form results never go into the address.
 - The only thing stored is the passport queue numbers a visitor takes (`localStorage` `eirad_tickets`, at most six)
   and the language (`eirad_lang`).
 - Services stop before anything sensitive: payments end at "Online payment is available to Talasbank card holders
