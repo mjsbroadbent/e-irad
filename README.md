@@ -24,20 +24,39 @@ DNS: apex A records 185.199.108.153, .109.153, .110.153, .111.153 (AAAA 2606:50c
   The guide's in-world credit is "developed with the support of the UNMI trade facilitation programme".
 - Look (Oct 2026 rework): a deliberately dated institutional portal, grey page, white header, blue nav bar and blue
   panel headers, small system type, a three-slide hero (drawn SVG "stock photos" in `assets/img/hero-*.svg`) with a
-  pill search bar, four blue tabs, and a crimson rule at the top as the only nod to iradgov.org. The national emblem
-  appears only small, as a link to iradgov.org.
+  pill search bar, four blue tabs, and a crimson rule at the top as the only nod to iradgov.org.
+- Icons: the government mark, the horse and star cut from the flag (crimson `#aa0000`; `assets/mark.svg`,
+  `mark-white.svg`, `mark-tile.svg`, `mark-tile-192/512.png`; `favicon.ico`, `favicon-32.png`,
+  `apple-touch-icon.png`; `manifest.webmanifest`), as on iradgov.org. It is used like a federal signature: the
+  crimson mark plus "Government of the Irad Special Economic Zone" in the header (links to iradgov.org) and the white
+  mark in the footer. The blue "e" tile stays the product logo. The circular seal is not used on e-Irad.
 
 ## Structure
 
-No build step. Every page is a stub (`index.html`, `procedures.html`, `procedure.html?id=…`, `laws.html`,
-`service.html?id=…`, `status.html`, `faq.html`, `accessibility.html`, `contact.html`, `login.html`, `404.html`)
-rendered by `assets/app.js` (header, footer, citizen services) and `assets/guide.js` (home page and the guide).
+No build step. Every page is a stub rendered by `assets/app.js` (header, footer, landing page, citizens home,
+citizen services) and `assets/guide.js` (business home and the guide). The site has two halves under a landing page:
+
+- `index.html`: landing page. Header, welcome line, two big tiles **For businesses** and **For citizens** (pictogram,
+  one-line description, Enter button, example links), a strip with Service availability / Help / Contact us /
+  Accessibility, the pilot banner and the footer. Old links `/#services` and `/#how` redirect to `citizens.html` and
+  `business.html#how`.
+- **For businesses** (`business.html` home: hero slider, pill search, four blue tabs, objective grid, "Business
+  services" box `#services`): `procedures.html`, `procedure.html?id=…`, `laws.html`, and the services whose `sec`
+  includes `b`. Breadcrumbs start "e-Irad › Business". The partners strip appears only in this section.
+- **For citizens** (`citizens.html` home: blue heading band with a service filter, category boxes `#cat-people`,
+  `#cat-pay`, `#cat-check`, `#cat-biz`, `#cat-other`, My e-Irad side box): the services whose `sec` includes `c`,
+  and `login.html` (My e-Irad). Breadcrumbs start "e-Irad › Citizens".
+- Shared: `status.html`, `faq.html`, `contact.html`, `accessibility.html`, `404.html` (neutral nav), plus the common
+  footer.
+- The nav bar changes with the section (`NAVS` in `app.js`), with a "Business | Citizens" switch at its right (always
+  visible on phones); the e-Irad logo goes to the landing page. `service.html?id=…` takes its section from the
+  service's `sec` (first letter is home); a service in both sections linked from its other section gets `&s=b|c`.
 
 - `assets/i18n.js`: interface strings in en / ir / ru; `assets/i18n-guide.js` adds and overrides the strings of the
   portal layout and the guide.
 - `assets/img/`: hero slides and the institution "photo cards" (`inst-<pic>.svg`: gov, office, post, lab, bank,
   kiosk, depot, yurt, warehouse, stable).
-- `assets/services.js`: the catalogue (`list`: id, category, status `ok|limited|maint|off|soon`, names, agency) and
+- `assets/services.js`: the catalogue (`list`: id, category, `sec` (`b`, `c` or both, e.g. `bc`), status `ok|limited|maint|off|soon`, names, agency) and
   the passport offices (queue size `base` and numbers served a week `rate`).
 - `assets/app.js`: the flows (`FLOWS.<id>`), their help texts (`HELP.<id>`), the status page (`SYS`, `INC`) and the
   FAQ. To add a service: an entry in `services.js`, a `FLOWS` function (and optional `HELP`) in `app.js`, and a

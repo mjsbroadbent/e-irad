@@ -112,4 +112,44 @@
     updatedOn: "Сведения обновлены {d}", printed: "Распечатано с e-irad.org {d}",
     art: { article: "статья", articles: "статьи", paragraph: "пункт", paragraphs: "пункты", section: "раздел", sections: "разделы", annex: "приложение", minute: "запись" }
   });
+  /* sections: landing page, For businesses, For citizens */
+  Object.assign(U.en, {
+    secBiz: "Business", secCit: "Citizens", secSwitch: "Section", forBiz: "For businesses", forCit: "For citizens",
+    forBizP: "Trade procedures, permits, licences and the registration of a business.",
+    forCitP: "Passport and ID card queue, bills and fines, parcels, motor policy checks and certificates.",
+    landH: "Public services online", landP: "Welcome to e-Irad, the public services portal of the Irad Special Economic Zone. Choose a section.",
+    enter: "Enter", examples: "For example",
+    nav_bhome: "Home", nav_chome: "Home", nav_bservices: "Business services",
+    tab_services: "Business services", bizSvcH: "Business services", bizSvcP: "Registration, permits and the census of business entities.",
+    bizToCit: "The passport queue, bills, fines and parcel tracking are in the section", citToBiz: "Trade procedures, licences and business registration are in the section",
+    citH: "Services for citizens", citP: "Take a number for the passport office, check bills and fines, follow a parcel, check a motor policy and find out how to obtain certificates.",
+    citSearch: "Find a service", myP: "Your queue numbers, applications and bills in one place.", myBtn: "Sign in to My e-Irad",
+    popular: "Most used", welcomeMore: "Help"
+  });
+  Object.assign(U.ir, {
+    secBiz: "Ishkerdik", secCit: "Jarandar", secSwitch: "Bölüm", forBiz: "Ishkerler üchün", forCit: "Jarandar üchün",
+    forBizP: "Sooda tartipteri, uruksattar, litsenziyalar jana ishkananı kattoo.",
+    forCitP: "Pasport jana ID-karta kezegi, esepter jana ayıptar, posılkalar, avtopolis tekshirüü jana kübölüktör.",
+    landH: "Mamlekettik kızmattar onlayn", landP: "Irad Atayın Ekonomikalık Zonasının mamlekettik kızmattar portalı e-Iradga kosh keliñiz. Bölümdü tandañız.",
+    enter: "Kirüü", examples: "Mısalı",
+    nav_bhome: "Bashkı bet", nav_chome: "Bashkı bet", nav_bservices: "Ishkerler üchün kızmattar",
+    tab_services: "Ishkerler üchün kızmattar", bizSvcH: "Ishkerler üchün kızmattar", bizSvcP: "Kattoo, uruksattar jana ishkanalardın sanagı.",
+    bizToCit: "Pasport kezegi, esepter, ayıptar jana posılka izdöö bul bölümdö:", citToBiz: "Sooda tartipteri, litsenziyalar jana ishkananı kattoo bul bölümdö:",
+    citH: "Jarandar üchün kızmattar", citP: "Pasport bölümünö kezek nomerin alıñız, esepterdi jana ayıptardı tekshiriñiz, posılkanı baykañız, avtopolisti tekshiriñiz jana kübölüktördü kantip aluunu bilip alıñız.",
+    citSearch: "Kızmattı tabuu", myP: "Kezek nomerleriñiz, arızdarıñız jana esepteriñiz bir jerde.", myBtn: "Menin e-Iradga kirüü",
+    popular: "Köp koldonulgandar", welcomeMore: "Jardam"
+  });
+  Object.assign(U.ru, {
+    secBiz: "Бизнес", secCit: "Граждане", secSwitch: "Раздел", forBiz: "Для бизнеса", forCit: "Для граждан",
+    forBizP: "Торговые процедуры, разрешения, лицензии и регистрация предприятия.",
+    forCitP: "Очередь на паспорт и ID-карту, счета и штрафы, посылки, проверка автополиса и свидетельства.",
+    landH: "Государственные услуги онлайн", landP: "Добро пожаловать на e-Irad, портал государственных услуг Особой экономической зоны Ирада. Выберите раздел.",
+    enter: "Войти", examples: "Например",
+    nav_bhome: "Главная", nav_chome: "Главная", nav_bservices: "Услуги для бизнеса",
+    tab_services: "Услуги для бизнеса", bizSvcH: "Услуги для бизнеса", bizSvcP: "Регистрация, разрешения и перепись хозяйствующих субъектов.",
+    bizToCit: "Очередь на паспорт, счета, штрафы и отслеживание посылок находятся в разделе", citToBiz: "Торговые процедуры, лицензии и регистрация предприятий находятся в разделе",
+    citH: "Услуги для граждан", citP: "Возьмите номер в паспортный стол, проверьте счета и штрафы, отследите посылку, проверьте автополис и узнайте, как получить свидетельства.",
+    citSearch: "Найти услугу", myP: "Ваши номера в очереди, заявления и счета в одном месте.", myBtn: "Войти в «Мой e-Irad»",
+    popular: "Часто используемые", welcomeMore: "Помощь"
+  });
 })(window.E_I18N.ui);

@@ -229,13 +229,14 @@ window.E_GUIDE = function (A) {
   /* ---------- home ---------- */
   var SLIDE_T = null;
   function home() {
+    document.title = t("forBiz") + " | e-Irad";
     loading();
     load(function () {
       var S = A.S;
       var slides = [["/assets/img/hero-1.svg", "heroH", "heroP"], ["/assets/img/hero-2.svg", "heroH2", "heroP2"], ["/assets/img/hero-3.svg", "heroH3", "heroP3"]];
       var h = '<section class="hero" aria-roledescription="carousel">' + slides.map(function (s, i) {
         return '<div class="slide' + (i === 0 ? " on" : "") + '" style="background-image:url(' + s[0] + ')" aria-hidden="' + (i !== 0) + '"><div class="wrap"><p class="sh">' + esc(t(s[1])) + '</p><p class="sp">' + esc(t(s[2])) + "</p></div></div>";
-      }).join("") + '<div class="wrap herobar"><h1 class="vh">' + esc(t("heroH")) + "</h1>" + searchBar("", "", "") + '<div class="dots">' + slides.map(function (s, i) { return '<button type="button" data-sl="' + i + '"' + (i === 0 ? ' aria-current="true"' : "") + ' aria-label="' + (i + 1) + '"></button>'; }).join("") + "</div></div></section>";
+      }).join("") + '<div class="wrap herobar"><h1 class="vh">' + esc(t("forBiz")) + ": " + esc(t("heroH")) + "</h1>" + searchBar("", "", "") + '<div class="dots">' + slides.map(function (s, i) { return '<button type="button" data-sl="' + i + '"' + (i === 0 ? ' aria-current="true"' : "") + ' aria-label="' + (i + 1) + '"></button>'; }).join("") + "</div></div></section>";
       h += '<div class="tabs4"><div class="wrap"><a href="#how" data-tab="how">' + esc(t("tab_how")) + '</a><a href="/laws.html">' + esc(t("tab_laws")) + '</a><a href="#services">' + esc(t("tab_services")) + '</a><a href="/status.html">' + esc(t("tab_status")) + "</a></div></div>";
       h += '<div class="wrap page home">';
       h += '<section id="how" class="box howbox" hidden><h2 class="boxh">' + esc(t("howH")) + '</h2><div class="boxb">' + t("howP") + "</div></section>";
@@ -243,11 +244,8 @@ window.E_GUIDE = function (A) {
         var n = objsFor(o.id); if (!n.length) return "";
         return '<a class="opt" href="/procedures.html?op=' + o.id + '">' + opIcon(o.icon) + '<span class="opn">' + esc(L(o.name)) + '</span><span class="opd">' + esc(n.map(function (x) { return L(x.productName); }).join(" · ")) + "</span></a>";
       }).join("") + '</div><p class="more"><a href="/procedures.html">' + esc(t("seeAll")) + " »</a></p></div></section>";
-      h += '<section class="box" id="services"><h2 class="boxh">' + esc(t("servicesH")) + '</h2><div class="boxb"><p class="tiny">' + esc(t("servicesP")) + '</p><div class="svcfilter"><label><span class="vh">' + esc(t("search")) + '</span><input type="search" id="q" autocomplete="off" placeholder="' + esc(t("searchPh2") || t("searchPh")) + '"></label></div>' +
-        S.cats.map(function (c) {
-          var items = S.list.filter(function (s) { return s.cat === c; });
-          return '<div class="cat" data-cat="' + c + '"><h3>' + esc(t("cat" + c.charAt(0).toUpperCase() + c.slice(1))) + '</h3><div class="svcs">' + items.map(A.card).join("") + "</div></div>";
-        }).join("") + '<p class="nomatch" hidden>' + esc(t("noMatch")) + '</p><p class="note">' + esc(t("officeHoursNote")) + "</p></div></section>";
+      var bl = S.list.filter(function (s) { return s.sec.indexOf("b") >= 0; });
+      h += '<section class="box" id="services"><h2 class="boxh">' + esc(t("bizSvcH")) + '</h2><div class="boxb"><p class="tiny">' + esc(t("bizSvcP")) + '</p><div class="svcs">' + bl.map(function (s) { return A.card(s, "b"); }).join("") + '</div><p class="note">' + esc(t("bizToCit")) + ' <a href="/citizens.html">' + esc(t("forCit")) + "</a>.</p></div></section>";
       h += "</div>";
       $("#app").innerHTML = h;
       wireSearch("");
@@ -259,13 +257,6 @@ window.E_GUIDE = function (A) {
       function showHow() { var b = $("#how"); b.hidden = false; }
       $('[data-tab="how"]').addEventListener("click", function () { showHow(); });
       if (location.hash === "#how") showHow();
-      var q = $("#q");
-      q.addEventListener("input", function () {
-        var v = q.value.trim().toLowerCase(), any = false;
-        $$(".svc").forEach(function (a) { var ok = !v || a.getAttribute("data-kw").indexOf(v) >= 0; a.hidden = !ok; if (ok) any = true; });
-        $$(".cat").forEach(function (c) { c.hidden = !$$(".svc", c).some(function (a) { return !a.hidden; }); });
-        $(".nomatch").hidden = any;
-      });
     });
   }
 
@@ -292,7 +283,7 @@ window.E_GUIDE = function (A) {
     load(function () {
       var qs = new URLSearchParams(location.search), opId = qs.get("op"), pId = qs.get("p") || (location.hash ? location.hash.slice(1) : ""), q = (qs.get("q") || "").trim();
       var o = op(opId), h = '<div class="wrap page">';
-      h += crumbs([[t("nav_home"), "/"], [t("nav_proc"), "/procedures.html"]].concat(o ? [[L(o.name), ""]] : q ? [[t("searchRes", { q: q }), ""]] : []).map(function (c, i, a) { return i === a.length - 1 ? [c[0], ""] : c; }));
+      h += crumbs([["e-Irad", "/"], [t("secBiz"), "/business.html"], [t("nav_proc"), "/procedures.html"]].concat(o ? [[L(o.name), ""]] : q ? [[t("searchRes", { q: q }), ""]] : []).map(function (c, i, a) { return i === a.length - 1 ? [c[0], ""] : c; }));
       h += '<div class="psearch">' + searchBar(opId || "", pId, q) + "</div>";
       if (q) {
         var ql = q.toLowerCase(), hits = [];
@@ -379,7 +370,7 @@ window.E_GUIDE = function (A) {
       var stepN = Math.max(0, Math.min(v.steps.length, parseInt(qs.get("step"), 10) || 0));
       var o = v.obj, oo = op(o.op), ref = "PR-" + ("0000" + (A.hash(id) % 100000)).slice(-5);
       document.title = L(v.title) + " | e-Irad";
-      var h = '<div class="wrap page procpage">' + crumbs([[t("nav_home"), "/"], [t("nav_proc"), "/procedures.html"], [L(oo.name), "/procedures.html?op=" + oo.id], [L(o.productName), "/procedures.html?op=" + oo.id + "&p=" + o.id + "#" + o.id], [L(v.title), ""]]);
+      var h = '<div class="wrap page procpage">' + crumbs([["e-Irad", "/"], [t("secBiz"), "/business.html"], [t("nav_proc"), "/procedures.html"], [L(oo.name), "/procedures.html?op=" + oo.id], [L(o.productName), "/procedures.html?op=" + oo.id + "&p=" + o.id + "#" + o.id], [L(v.title), ""]]);
       h += '<div class="phead"><h1>' + (v.full ? '<span class="fulltag">' + esc(t("full")) + "</span> " : "") + esc(L(v.title)) + '</h1><p class="tags"><a href="/procedures.html?op=' + oo.id + '">' + esc(L(oo.name)) + '</a><a href="/procedures.html?op=' + oo.id + "&p=" + o.id + "#" + o.id + '">' + esc(L(o.productName)) + '</a></p><p class="pdesc">' + esc(v.full ? L(o.intro) : L(v.desc)) + '</p>' +
         '<div class="pbtns"><button type="button" class="btn" data-act="contact">' + esc(t("contactBtn")) + '</button><button type="button" class="btn ghost" data-act="ctx" aria-expanded="false">' + esc(t("contextBtn")) + " ▾</button>" +
         '<button type="button" class="btn ghost icon" data-act="print" title="' + esc(t("printBtn")) + '"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7z"/></svg><span class="vh">' + esc(t("printBtn")) + "</span></button>" +
@@ -427,7 +418,7 @@ window.E_GUIDE = function (A) {
         v.steps.forEach(function (x) { (x.s.gives || []).forEach(function (d) { if (RECEIPTS[d]) return; issued[d] = issued[d] || []; if (issued[d].indexOf(o.id) < 0) issued[d].push(o.id); }); });
       });
       function olinks(list) { return list.map(function (id) { var o = obj(id); return '<a href="/procedure.html?id=' + id + '">' + esc(L(o.title)) + "</a>"; }).join(", "); }
-      var h = '<div class="wrap page">' + crumbs([[t("nav_home"), "/"], [t("lawsPageH"), ""]]) + "<h1>" + esc(t("lawsPageH")) + '</h1><p class="lead">' + esc(t("lawsPageP")) + "</p>";
+      var h = '<div class="wrap page">' + crumbs([["e-Irad", "/"], [t("secBiz"), "/business.html"], [t("lawsPageH"), ""]]) + "<h1>" + esc(t("lawsPageH")) + '</h1><p class="lead">' + esc(t("lawsPageP")) + "</p>";
       h += panel(esc(t("lawsList")) + " (" + Object.keys(DATA.laws).length + ")", '<ul class="lawlist big">' + Object.keys(DATA.laws).map(function (k) { var x = DATA.laws[k]; return '<li id="l-' + k + '"><b>' + esc(L(x.no)) + "</b> " + esc(L(x.title)) + (cite[k] ? '<span class="tiny">' + t("citedIn", { p: olinks(cite[k]) }) + "</span>" : "") + "</li>"; }).join("") + "</ul>", true);
       var docs = Object.keys(issued).sort(function (a, b) { return docName(a).localeCompare(docName(b)); });
       h += panel(esc(t("formsList")) + " (" + docs.length + ")", '<ul class="lawlist">' + docs.map(function (d) { return "<li>" + docLine(d) + '<span class="tiny">' + t("issuedIn", { p: olinks(issued[d]) }) + "</span></li>"; }).join("") + "</ul>", false);
@@ -442,5 +433,5 @@ window.E_GUIDE = function (A) {
     });
   }
 
-  return { home: home, procedures: procedures, procedure: procedure, laws: laws };
+  return { business: home, procedures: procedures, procedure: procedure, laws: laws };
 };

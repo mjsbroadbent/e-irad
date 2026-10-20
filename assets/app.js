@@ -44,32 +44,47 @@
   function badge(st) { return '<span class="badge b-' + st + '">' + esc(t("st_" + st)) + "</span>"; }
 
   /* ---------- chrome ---------- */
-  var NAV = [["home", "/"], ["proc", "/procedures.html"], ["services", "/#services"], ["laws", "/laws.html"], ["status", "/status.html"], ["faq", "/faq.html"], ["contact", "/contact.html"], ["login", "/login.html"]];
-  var CUR = { home: "home", service: "services", procedures: "proc", procedure: "proc", laws: "laws" };
+  // Sections: "b" For businesses, "c" For citizens, "x" shared pages, "land" the landing page.
+  var NAVS = {
+    b: [["bhome", "/business.html"], ["proc", "/procedures.html"], ["bservices", "/business.html#services"], ["laws", "/laws.html"], ["status", "/status.html"], ["faq", "/faq.html"]],
+    c: [["chome", "/citizens.html"], ["people", "/citizens.html#cat-people"], ["pay", "/citizens.html#cat-pay"], ["check", "/citizens.html#cat-check"], ["faq", "/faq.html"], ["login", "/login.html"]],
+    x: [["home", "/"], ["status", "/status.html"], ["faq", "/faq.html"], ["contact", "/contact.html"], ["accessibility", "/accessibility.html"], ["login", "/login.html"]]
+  };
+  var NAVLBL = { people: "catPeople", pay: "catPay", check: "catCheck", accessibility: "footAcc" };
+  var PAGESEC = { landing: "land", business: "b", procedures: "b", procedure: "b", laws: "b", citizens: "c", login: "c" };
+  var CUR = { business: "bhome", citizens: "chome", procedures: "proc", procedure: "proc", laws: "laws", login: "login", status: "status", faq: "faq", contact: "contact", accessibility: "accessibility" };
   var LANG_ORDER = ["ir", "ru", "en"];
+  function secOf(s) { var w = new URLSearchParams(location.search).get("s"); return w && s.sec.indexOf(w) >= 0 ? w : s.sec.charAt(0); }
+  function SEC() { if (PAGE === "service") { var s = svc(new URLSearchParams(location.search).get("id")); return s ? secOf(s) : "x"; } return PAGESEC[PAGE] || "x"; }
+  var MARK = '<img class="mark" src="/assets/mark.svg" alt="" width="34" height="34">';
   function chrome() {
-    var cur = CUR[PAGE] || PAGE;
+    var sec = SEC(), cur = CUR[PAGE] || PAGE, nav = NAVS[sec] || [];
     $("#top").innerHTML =
       '<a class="skip" href="#main">' + esc(t("skip")) + "</a>" +
-      '<div class="topline"><div class="wrap"><span class="welcome">' + esc(t("welcome")) + ' <a href="/#how">' + esc(t("welcomeMore")) + '</a></span>' +
+      '<div class="topline"><div class="wrap"><span class="welcome">' + esc(t("welcome")) + ' <a href="/faq.html">' + esc(t("welcomeMore")) + '</a></span>' +
       '<span class="langs" role="group" aria-label="' + esc(t("lang")) + '">' + LANG_ORDER.map(function (l) { return '<a href="?lang=' + l + '" data-lang="' + l + '" lang="' + I.htmlLang[l] + '"' + (l === LANG ? ' aria-current="true"' : "") + ">" + esc(I.langs[l]) + "</a>"; }).join('<span aria-hidden="true">|</span>') + "</span></div></div>" +
-      '<header class="head"><div class="wrap"><button class="burger" type="button" aria-expanded="false" aria-controls="mainnav"><span class="vh">' + esc(t("menu")) + '</span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>' +
+      '<header class="head sec-' + sec + '"><div class="wrap">' + (nav.length ? '<button class="burger" type="button" aria-expanded="false" aria-controls="mainnav"><span class="vh">' + esc(t("menu")) + '</span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>' : "") +
       '<a class="brand" href="/"><span class="logo" aria-hidden="true">e</span><span class="bt"><b>e-Irad</b><small>' + esc(t("portalSub")) + "</small></span></a>" +
-      '<a class="govlink" href="' + GOV + '" title="' + esc(t("gov")) + '"><img src="/assets/emblem.svg" alt="" width="40" height="40"><span><small>' + esc(t("gov")) + "</small><b>" + esc(t("dic")) + "</b></span></a></div>" +
-      '<nav class="mainnav" id="mainnav" aria-label="e-Irad"><div class="wrap"><ul>' +
-      NAV.map(function (n) { return '<li><a href="' + n[1] + '"' + (n[0] === cur ? ' aria-current="page"' : "") + (n[0] === "login" ? ' class="loginlink"' : "") + ">" + esc(t("nav_" + n[0])) + "</a></li>"; }).join("") +
-      "</ul></div></nav></header>" +
-      '<div class="banner" role="status"><div class="wrap"><span class="dot" aria-hidden="true"></span><span>' + t("banner") + ' <a href="/status.html">' + esc(t("bannerMore")) + "</a></span></div></div>";
-    $(".burger").addEventListener("click", function () { var h = $(".head"); var o = !h.classList.contains("open"); h.classList.toggle("open", o); this.setAttribute("aria-expanded", o); });
+      '<a class="govlink" href="' + GOV + '" title="' + esc(t("footGov")) + '">' + MARK + "<span><b>" + esc(t("gov")) + "</b><small>" + esc(t("dic")) + "</small></span></a></div>" +
+      (sec === "land" ? '<div class="landrule"></div>' :
+      '<nav class="mainnav" aria-label="e-Irad"><div class="wrap"><ul id="mainnav">' +
+      nav.map(function (n) { return '<li><a href="' + n[1] + '"' + (n[0] === cur ? ' aria-current="page"' : "") + (n[0] === "login" ? ' class="loginlink"' : "") + ">" + esc(t(NAVLBL[n[0]] || "nav_" + n[0])) + "</a></li>"; }).join("") +
+      '</ul><div class="secsw" role="group" aria-label="' + esc(t("secSwitch")) + '"><a href="/business.html"' + (sec === "b" ? ' aria-current="true"' : "") + ">" + esc(t("secBiz")) + '</a><a href="/citizens.html"' + (sec === "c" ? ' aria-current="true"' : "") + ">" + esc(t("secCit")) + "</a></div></div></nav>") +
+      "</header>" +
+      (sec === "land" ? "" : '<div class="banner" role="status"><div class="wrap"><span class="dot" aria-hidden="true"></span><span>' + t("banner") + ' <a href="/status.html">' + esc(t("bannerMore")) + "</a></span></div></div>");
+    var bg = $(".burger"); if (bg) bg.addEventListener("click", function () { var h = $(".head"); var o = !h.classList.contains("open"); h.classList.toggle("open", o); this.setAttribute("aria-expanded", o); });
     $$("[data-lang]").forEach(function (b) { b.addEventListener("click", function (e) { e.preventDefault(); setLang(b.getAttribute("data-lang")); }); });
-    $("#bottom").innerHTML = '<footer class="foot"><div class="partners"><div class="wrap"><h2>' + esc(t("partnersH")) + '</h2><ul class="plogos">' +
+    $("#bottom").innerHTML = '<footer class="foot">' + (sec === "b" ? '<div class="partners"><div class="wrap"><h2>' + esc(t("partnersH")) + '</h2><ul class="plogos">' +
       [["UNMI", { en: "Trade facilitation programme", ir: "Sooda jeñildetüü programması", ru: "Программа содействия торговле" }, "un"], ["CCI", { en: "Chamber of Commerce and Industry of Irad", ir: "Irad sooda-önör jay palatası", ru: "Торгово-промышленная палата Ирада" }, "cci"], ["IPO", { en: "Investment Promotion Office", ir: "Investitsiyalardı ilgeriletüü keñsesi", ru: "Офис содействия инвестициям" }, "ipo"], ["BS", { en: "Customs Service", ir: "Bajı kızmatı", ru: "Таможенная служба" }, "cus"], ["TSU", { en: "Talas State University", ir: "Talas mamlekettik universiteti", ru: "Таласский государственный университет" }, "tsu"]].map(function (p) {
         return '<li class="pl pl-' + p[2] + '"><span class="plm">' + esc(p[0]) + "</span><span>" + esc(L(p[1])) + "</span></li>";
-      }).join("") + '</ul><p class="tiny">' + esc(t("credit")) + "</p></div></div>" +
+      }).join("") + '</ul><p class="tiny">' + esc(t("credit")) + "</p></div></div>" : "") +
       '<div class="wrap"><div class="fcols"><div><div class="brand small"><span class="logo">e</span><b>e-Irad</b></div><p>' + esc(t("footAbout")) + "</p><p>" + esc(t("footAddr")) + '<br>+996-39-2-27-14-14 · <a href="mailto:help@e-irad.org">help@e-irad.org</a><br>' + esc(t("footHours")) + "</p></div>" +
-      "<div><h4>" + esc(t("footLinks")) + '</h4><ul><li><a href="/procedures.html">' + esc(t("nav_proc")) + '</a></li><li><a href="/laws.html">' + esc(t("nav_laws")) + '</a></li><li><a href="/status.html">' + esc(t("nav_status")) + '</a></li><li><a href="/faq.html">' + esc(t("nav_faq")) + '</a></li><li><a href="/accessibility.html">' + esc(t("footAcc")) + '</a></li><li><a href="/contact.html">' + esc(t("nav_contact")) + "</a></li></ul></div>" +
-      "<div><h4>" + esc(t("gov")) + '</h4><ul><li><a href="' + GOV + '">' + esc(t("footGov")) + '</a></li><li><a href="' + GOV + 'administration.html">iradgov.org</a></li></ul><p class="tiny">' + esc(t("noPw")) + "</p></div></div>" +
-      '<div class="fine">' + esc(t("footCopy", { y: iradNow().getFullYear() })) + "</div></div></footer>";
+      "<div><h4>e-Irad</h4><ul>" +
+      '<li><a href="/business.html">' + esc(t("forBiz")) + '</a></li><li><a href="/procedures.html">' + esc(t("nav_proc")) + '</a></li><li><a href="/laws.html">' + esc(t("nav_laws")) + "</a></li>" +
+      '<li><a href="/citizens.html">' + esc(t("forCit")) + '</a></li><li><a href="/login.html">' + esc(t("nav_login")) + "</a></li></ul></div>" +
+      "<div><h4>" + esc(t("footLinks")) + '</h4><ul><li><a href="/status.html">' + esc(t("nav_status")) + '</a></li><li><a href="/faq.html">' + esc(t("nav_faq")) + '</a></li><li><a href="/contact.html">' + esc(t("nav_contact")) + '</a></li><li><a href="/accessibility.html">' + esc(t("footAcc")) + "</a></li></ul></div>" +
+      "<div><h4>" + esc(t("footGov")) + '</h4><ul><li><a href="' + GOV + '">iradgov.org</a></li><li><a href="' + GOV + 'administration.html">' + esc({ en: "Administration", ir: "Administratsiya", ru: "Администрация" }[LANG]) + '</a></li></ul><p class="tiny">' + esc(t("noPw")) + "</p></div></div>" +
+      '<div class="fine"><span>' + esc(t("footCopy", { y: iradNow().getFullYear() })) + '</span><a class="fmark" href="' + GOV + '"><img src="/assets/mark-white.svg" alt="" width="26" height="26"><span>' + esc(t("gov")) + "</span></a></div></div></footer>";
   }
   function setLang(l) {
     if (l === LANG) return; LANG = l;
@@ -110,8 +125,9 @@
   };
 
   /* ---------- catalogue ---------- */
-  function card(s) {
-    return '<a class="svc" href="/service.html?id=' + s.id + '" data-kw="' + esc((L(s.name) + " " + L(s.desc) + " " + s.keywords + " " + s.name.en).toLowerCase()) + '">' + icon(s.icon) +
+  function svcHref(s, sec) { return "/service.html?id=" + s.id + (sec && s.sec.length > 1 && s.sec.charAt(0) !== sec ? "&s=" + sec : ""); }
+  function card(s, sec) {
+    return '<a class="svc" href="' + svcHref(s, sec) + '" data-kw="' + esc((L(s.name) + " " + L(s.desc) + " " + s.keywords + " " + s.name.en).toLowerCase()) + '">' + icon(s.icon) +
       '<span class="sbody"><span class="sname">' + esc(L(s.name)) + '</span><span class="sdesc">' + esc(L(s.desc)) + "</span>" + badge(s.status) + "</span></a>";
   }
   /* ---------- service page ---------- */
@@ -515,10 +531,61 @@
     var id = new URLSearchParams(location.search).get("id"), s = svc(id), main = $("#app");
     if (!s) { pageNF(); return; }
     document.title = L(s.name) + " | e-Irad";
-    main.innerHTML = '<div class="wrap page"><nav class="crumbs"><a href="/">' + esc(t("nav_home")) + '</a> <span class="sep">›</span> <a href="/#services">' + esc(t("nav_services")) + '</a> <span class="sep">›</span> <span>' + esc(L(s.name)) + "</span></nav>" +
+    var sec = secOf(s), SEP = ' <span class="sep">›</span> ';
+    main.innerHTML = '<div class="wrap page"><nav class="crumbs" aria-label="breadcrumb"><a href="/">e-Irad</a>' + SEP + (sec === "b" ? '<a href="/business.html">' + esc(t("secBiz")) + "</a>" + SEP + '<a href="/business.html#services">' + esc(t("nav_bservices")) + "</a>" : '<a href="/citizens.html">' + esc(t("secCit")) + "</a>" + SEP + '<a href="/citizens.html#cat-' + s.cat + '">' + esc(t("cat" + s.cat.charAt(0).toUpperCase() + s.cat.slice(1))) + "</a>") + SEP + "<span>" + esc(L(s.name)) + "</span></nav>" +
       '<div class="svchead">' + icon(s.icon) + "<div><h1>" + esc(L(s.name)) + "</h1><p>" + esc(L(s.desc)) + '</p><p class="agency"><span>' + esc(t("agency")) + ":</span> " + esc(L(s.agency)) + " " + badge(s.status) + "</p></div></div>" +
       '<div class="svcgrid"><div id="flowbox"></div><aside class="help">' + (HELP[id] ? L(HELP[id]) : "") + '<p class="tiny">' + esc(t("offline")) + "</p></aside></div></div>";
     FLOWS[id]($("#flowbox"));
+  }
+
+  /* ---------- landing page ---------- */
+  var PICT = {
+    b: '<svg class="pict" viewBox="0 0 96 96" aria-hidden="true"><rect x="6" y="40" width="54" height="40" fill="#e6eef7" stroke="#1f5a96" stroke-width="3"/><path d="M6 40 33 22l27 18" fill="none" stroke="#1f5a96" stroke-width="3" stroke-linejoin="round"/><rect x="16" y="52" width="12" height="10" fill="#fff" stroke="#1f5a96" stroke-width="2.5"/><rect x="38" y="52" width="12" height="28" fill="#fff" stroke="#1f5a96" stroke-width="2.5"/><rect x="60" y="56" width="30" height="24" fill="#c99a1c" stroke="#7a5a0c" stroke-width="2.5"/><path d="M60 64h30M75 56v24" stroke="#7a5a0c" stroke-width="2"/><rect x="66" y="36" width="20" height="20" fill="#d9b04a" stroke="#7a5a0c" stroke-width="2.5"/><path d="M66 46h20" stroke="#7a5a0c" stroke-width="2"/><path d="M2 82h92" stroke="#174676" stroke-width="3"/></svg>',
+    c: '<svg class="pict" viewBox="0 0 96 96" aria-hidden="true"><circle cx="34" cy="28" r="12" fill="#e6eef7" stroke="#1f5a96" stroke-width="3"/><path d="M12 80c1-17 10-27 22-27s21 10 22 27z" fill="#e6eef7" stroke="#1f5a96" stroke-width="3" stroke-linejoin="round"/><circle cx="64" cy="38" r="9" fill="#fff" stroke="#1f5a96" stroke-width="3"/><path d="M48 80c1-13 7-21 16-21s15 8 16 21z" fill="#fff" stroke="#1f5a96" stroke-width="3" stroke-linejoin="round"/><rect x="58" y="10" width="32" height="22" rx="2" fill="#8e1b26"/><circle cx="67" cy="21" r="4" fill="#f3d9dc"/><path d="M74 17h11M74 22h8M74 26h10" stroke="#f3d9dc" stroke-width="2"/><path d="M2 82h92" stroke="#174676" stroke-width="3"/></svg>'
+  };
+  function pageLanding() {
+    if (location.hash === "#services") { location.replace("/citizens.html" + location.search); return; }
+    if (location.hash === "#how") { location.replace("/business.html" + location.search + "#how"); return; }
+    document.title = "e-Irad | " + t("tag");
+    function tile(k, href, links) {
+      return '<section class="gate gate-' + k + '"><a class="gatehead" href="' + href + '">' + PICT[k] + '<span class="gt"><span class="gh">' + esc(t(k === "b" ? "forBiz" : "forCit")) + '</span><span class="gp">' + esc(t(k === "b" ? "forBizP" : "forCitP")) + '</span><span class="btn gbtn">' + esc(t("enter")) + ' »</span></span></a>' +
+        '<div class="gex"><h2>' + esc(t("examples")) + ':</h2><ul>' + links.map(function (l) { return '<li><a href="' + l[0] + '">' + esc(l[1]) + "</a></li>"; }).join("") + "</ul></div></section>";
+    }
+    function sl(id, sec) { var s = svc(id); return [svcHref(s, sec), L(s.name)]; }
+    $("#app").innerHTML = '<div class="wrap page landing"><h1>' + esc(t("landH")) + '</h1><p class="lead">' + esc(t("landP")) + "</p>" +
+      '<div class="gates">' +
+      tile("b", "/business.html", [["/procedures.html", t("heroH")], ["/procedures.html?op=import", t("heroH2")], sl("business", "b"), sl("event", "b"), ["/laws.html", t("nav_laws")]]) +
+      tile("c", "/citizens.html", [sl("passport", "c"), sl("electricity", "c"), sl("fines", "c"), sl("parcel", "c"), sl("motor", "c"), sl("civil", "c")]) +
+      "</div>" +
+      '<ul class="strip"><li><a href="/status.html">' + icon("chart") + esc(t("nav_status")) + '</a></li><li><a href="/faq.html">' + icon("doc") + esc(t("nav_faq")) + '</a></li><li><a href="/contact.html">' + icon("id") + esc(t("nav_contact")) + '</a></li><li><a href="/accessibility.html">' + icon("shield") + esc(t("footAcc")) + "</a></li></ul>" +
+      '<div class="banner inline" role="status"><span class="dot" aria-hidden="true"></span><span>' + t("banner") + ' <a href="/status.html">' + esc(t("bannerMore")) + "</a></span></div></div>";
+  }
+
+  /* ---------- citizens home ---------- */
+  var CIT_CATS = ["people", "pay", "check", "biz", "other"];
+  function pageCitizens() {
+    document.title = t("forCit") + " | e-Irad";
+    var list = S.list.filter(function (s) { return s.sec.indexOf("c") >= 0; });
+    var h = '<section class="chero"><div class="wrap"><nav class="crumbs" aria-label="breadcrumb"><a href="/">e-Irad</a> <span class="sep">›</span> <span>' + esc(t("secCit")) + "</span></nav>" +
+      "<h1>" + esc(t("citH")) + '</h1><p>' + esc(t("citP")) + '</p><form class="pill cpill" role="search" id="cform"><label class="pseg ptext"><span class="plab">' + esc(t("citSearch")) + '</span><input type="search" id="q" autocomplete="off" placeholder="' + esc(t("searchPh2")) + '"></label></form></div></section>';
+    h += '<div class="wrap page citizens"><div class="cgrid"><div>';
+    h += CIT_CATS.map(function (c) {
+      var items = list.filter(function (s) { return s.cat === c; }); if (!items.length) return "";
+      return '<section class="box cat" id="cat-' + c + '"><h2 class="boxh">' + esc(t("cat" + c.charAt(0).toUpperCase() + c.slice(1))) + '</h2><div class="boxb"><div class="svcs">' + items.map(function (s) { return card(s, "c"); }).join("") + "</div></div></section>";
+    }).join("") + '<p class="nomatch box boxb" hidden>' + esc(t("noMatch")) + '</p><p class="note">' + esc(t("officeHoursNote")) + "</p></div>";
+    h += '<aside class="cside"><section class="box"><h2 class="boxh">' + esc(t("nav_login")) + '</h2><div class="boxb"><p>' + esc(t("myP")) + '</p><p><a class="btn" href="/login.html">' + esc(t("myBtn")) + '</a></p></div></section>' +
+      '<section class="box"><h2 class="boxh">' + esc(t("popular")) + '</h2><div class="boxb"><ul class="plain">' + ["passport", "electricity", "parcel", "fines"].map(function (id) { var s = svc(id); return '<li><a href="' + svcHref(s, "c") + '">' + esc(L(s.name)) + "</a></li>"; }).join("") + "</ul></div></section>" +
+      '<section class="box"><h2 class="boxh">' + esc(t("forBiz")) + '</h2><div class="boxb"><p class="tiny">' + esc(t("citToBiz")) + ' <a href="/business.html">' + esc(t("forBiz")) + "</a>.</p></div></section></aside></div></div>";
+    $("#app").innerHTML = h;
+    $("#cform").addEventListener("submit", function (e) { e.preventDefault(); });
+    var q = $("#q");
+    q.addEventListener("input", function () {
+      var v = q.value.trim().toLowerCase(), any = false;
+      $$(".svc").forEach(function (a) { var ok = !v || a.getAttribute("data-kw").indexOf(v) >= 0; a.hidden = !ok; if (ok) any = true; });
+      $$(".cat").forEach(function (c) { c.hidden = !$$(".svc", c).some(function (a) { return !a.hidden; }); });
+      $(".nomatch").hidden = any;
+    });
+    if (location.hash) { var el = document.getElementById(location.hash.slice(1)); if (el) setTimeout(function () { el.scrollIntoView(); }, 0); }
   }
 
   /* ---------- status ---------- */
@@ -583,13 +650,13 @@
     document.title = t("nfH") + " | e-Irad";
   }
 
-  var G = window.E_GUIDE({ $: $, $$: $$, esc: esc, t: t, L: L, fmtN: fmtN, som: som, fmtD: fmtD, hash: hash, today: today, S: S, card: card, pageNF: pageNF });
+  var G = window.E_GUIDE({ $: $, $$: $$, esc: esc, t: t, L: L, fmtN: fmtN, som: som, fmtD: fmtD, hash: hash, today: today, S: S, card: card, svcHref: svcHref, pageNF: pageNF });
   var TITLES = { status: "nav_status", faq: "faqH", accessibility: "accH", contact: "ctH", login: "loginH" };
   function render() {
     document.documentElement.lang = I.htmlLang[LANG];
     chrome();
-    if (TITLES[PAGE]) document.title = t(TITLES[PAGE]) + " | e-Irad"; else if (PAGE === "home") document.title = "e-Irad | " + t("tag");
-    ({ home: G.home, procedures: G.procedures, procedure: G.procedure, laws: G.laws, service: pageService, status: pageStatus, faq: pageFAQ, accessibility: pageAcc, contact: pageContact, login: pageLogin, nf: pageNF }[PAGE] || pageNF)();
+    if (TITLES[PAGE]) document.title = t(TITLES[PAGE]) + " | e-Irad";
+    ({ landing: pageLanding, business: G.business, citizens: pageCitizens, procedures: G.procedures, procedure: G.procedure, laws: G.laws, service: pageService, status: pageStatus, faq: pageFAQ, accessibility: pageAcc, contact: pageContact, login: pageLogin, nf: pageNF }[PAGE] || pageNF)();
   }
   render();
 })();
