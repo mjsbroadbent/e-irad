@@ -23,7 +23,7 @@ DNS: apex A records 185.199.108.153, .109.153, .110.153, .111.153 (AAAA 2606:50c
 - No real government branding, and nothing copied from real trade portals: no other portal's name, logo or wording.
   The guide's in-world credit is "developed with the support of the UNMI trade facilitation programme".
 - Look (Oct 2026 rework): a deliberately dated institutional portal, grey page, white header, blue nav bar and blue
-  panel headers, small system type, a three-slide hero (drawn SVG "stock photos" in `assets/img/hero-*.svg`) with a
+  panel headers, small system type, a three-slide hero (photos in `assets/img/hero-*.jpg`, 1536×512, with a dark gradient on the left for the text) with a
   pill search bar, four blue tabs, and a crimson rule at the top as the only nod to iradgov.org.
 - Icons: the government mark, the horse and star cut from the flag (crimson `#aa0000`; `assets/mark.svg`,
   `mark-white.svg`, `mark-tile.svg`, `mark-tile-192/512.png`; `favicon.ico`, `favicon-32.png`,
@@ -54,8 +54,9 @@ citizen services) and `assets/guide.js` (business home and the guide). The site 
 
 - `assets/i18n.js`: interface strings in en / ir / ru; `assets/i18n-guide.js` adds and overrides the strings of the
   portal layout and the guide.
-- `assets/img/`: hero slides and the institution "photo cards" (`inst-<pic>.svg`: gov, office, post, lab, bank,
-  kiosk, depot, yurt, warehouse, stable).
+- `assets/img/`: hero slides and the institution photo cards (`inst-<pic>.jpg`, 480×300: gov, office, post, lab, bank,
+  kiosk, depot, yurt, warehouse, stable). Photos generated locally (FLUX.1 Krea + Amateur Photography LoRA 0.6, see
+  irad_wiki `tools/comfyui/`); garbled lettering on signs, plates and posters pixelated, flags repainted crimson.
 - `assets/services.js`: the catalogue (`list`: id, category, `sec` (`b`, `c` or both, e.g. `bc`), status `ok|limited|maint|off|soon`, names, agency) and
   the passport offices (queue size `base` and numbers served a week `rate`).
 - `assets/app.js`: the flows (`FLOWS.<id>`), their help texts (`HELP.<id>`), the status page (`SYS`, `INC`) and the

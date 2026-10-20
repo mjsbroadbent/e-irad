@@ -72,6 +72,8 @@ p { margin: 0 0 .8em; }
 .hero { position: relative; height: 380px; background: #33475b; overflow: hidden; }
 .slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s; }
 .slide.on { opacity: 1; }
+.slide::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #0d1f30b3 0%, #0d1f3066 45%, #0d1f3000 75%); }
+.slide .wrap { position: relative; }
 .slide .wrap { padding-top: 64px; color: #fff; }
 .sh { font-size: 2.15rem; font-weight: 600; margin: 0 0 .3em; text-shadow: 0 2px 6px #0008; max-width: 760px; line-height: 1.15; }
 .sp { font-size: 1rem; max-width: 640px; text-shadow: 0 1px 4px #000a; }

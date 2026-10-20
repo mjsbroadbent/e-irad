@@ -233,7 +233,7 @@ window.E_GUIDE = function (A) {
     loading();
     load(function () {
       var S = A.S;
-      var slides = [["/assets/img/hero-1.svg", "heroH", "heroP"], ["/assets/img/hero-2.svg", "heroH2", "heroP2"], ["/assets/img/hero-3.svg", "heroH3", "heroP3"]];
+      var slides = [["/assets/img/hero-1.jpg", "heroH", "heroP"], ["/assets/img/hero-2.jpg", "heroH2", "heroP2"], ["/assets/img/hero-3.jpg", "heroH3", "heroP3"]];
       var h = '<section class="hero" aria-roledescription="carousel">' + slides.map(function (s, i) {
         return '<div class="slide' + (i === 0 ? " on" : "") + '" style="background-image:url(' + s[0] + ')" aria-hidden="' + (i !== 0) + '"><div class="wrap"><p class="sh">' + esc(t(s[1])) + '</p><p class="sp">' + esc(t(s[2])) + "</p></div></div>";
       }).join("") + '<div class="wrap herobar"><h1 class="vh">' + esc(t("forBiz")) + ": " + esc(t("heroH")) + "</h1>" + searchBar("", "", "") + '<div class="dots">' + slides.map(function (s, i) { return '<button type="button" data-sl="' + i + '"' + (i === 0 ? ' aria-current="true"' : "") + ' aria-label="' + (i + 1) + '"></button>'; }).join("") + "</div></div></section>";
@@ -322,7 +322,7 @@ window.E_GUIDE = function (A) {
   /* ---------- procedure page ---------- */
   function instCard(id, n) {
     var i = inst(id);
-    return '<li class="ic"><img src="/assets/img/inst-' + i.pic + '.svg" alt="" width="80" height="50" loading="lazy"><div><a href="/laws.html#i-' + id + '">' + esc(L(i.name)) + "</a>" + (i.note ? '<span class="notisez">' + esc(L(i.note)) + "</span>" : '<span class="tiny">' + esc(L(i.parent)) + "</span>") + '<span class="tiny">' + esc(t("stepsCount", { n: n })) + "</span></div></li>";
+    return '<li class="ic"><img src="/assets/img/inst-' + i.pic + '.jpg" alt="" width="80" height="50" loading="lazy"><div><a href="/laws.html#i-' + id + '">' + esc(L(i.name)) + "</a>" + (i.note ? '<span class="notisez">' + esc(L(i.note)) + "</span>" : '<span class="tiny">' + esc(L(i.parent)) + "</span>") + '<span class="tiny">' + esc(t("stepsCount", { n: n })) + "</span></div></li>";
   }
   function docLine(d, extra) { var D = DATA.documents[d], v = D && D.valid ? ' <span class="valid">(' + esc(t("valid", { n: D.valid })) + ")</span>" : ""; return esc(docName(d)) + v + (extra ? ' <span class="tiny">' + extra + "</span>" : ""); }
   function summary(v) {
@@ -352,7 +352,7 @@ window.E_GUIDE = function (A) {
     h += '<h2 class="sdh"><span class="stn">' + n + "</span> " + esc(L(s.title)) + (s.optional ? ' <span class="opttag">★ ' + esc(t("optional")) + "</span>" : "") + "</h2>";
     if (v.full) h += '<p class="tiny">' + esc(t("partOf", { p: L(DATA.procedures[x.proc].title) })) + ' · <a href="/procedure.html?id=' + x.proc + '">»</a></p>';
     if (s.note) h += '<p class="snote">' + esc(L(s.note)) + "</p>";
-    h += '<div class="sbox"><div class="sinst"><img src="/assets/img/inst-' + i.pic + '.svg" alt="" width="160" height="100"><div><h3>' + esc(t("inst")) + "</h3><p><b>" + esc(L(i.name)) + "</b><br>" + esc(L(i.parent)) + "</p>" + (i.note ? '<p class="notisez">' + esc(L(i.note)) + "</p>" : "") + "</div></div>" +
+    h += '<div class="sbox"><div class="sinst"><img src="/assets/img/inst-' + i.pic + '.jpg" alt="" width="160" height="100"><div><h3>' + esc(t("inst")) + "</h3><p><b>" + esc(L(i.name)) + "</b><br>" + esc(L(i.parent)) + "</p>" + (i.note ? '<p class="notisez">' + esc(L(i.note)) + "</p>" : "") + "</div></div>" +
       '<dl class="kvs">' + "<dt>" + esc(t("where")) + "</dt><dd>" + esc(L(s.where || i.address)) + "</dd><dt>" + esc(t("hours")) + "</dt><dd>" + esc(L(s.hours || i.hours)) + "</dd><dt>" + esc(t("phone")) + "</dt><dd>" + esc(i.phone) + "</dd>" + (s.who ? "<dt>" + esc(t("who")) + "</dt><dd>" + esc(L(s.who)) + "</dd>" : "") + "</dl></div>";
     h += "<h3>" + esc(t("bring")) + "</h3>" + ((s.needs || []).length ? '<ul class="doclist">' + s.needs.map(function (d) { return "<li>" + docLine(d, made[d] ? esc(t("fromStep", { n: made[d] })) : "") + "</li>"; }).join("") + "</ul>" : "<p>" + esc(t("noDocs")) + "</p>");
     h += "<h3>" + esc(t("receive")) + "</h3>" + ((s.gives || []).length ? '<ul class="doclist">' + s.gives.map(function (d) { return "<li>" + docLine(d) + "</li>"; }).join("") + "</ul>" : "<p>" + esc(t("noDocs")) + "</p>");
@@ -424,7 +424,7 @@ window.E_GUIDE = function (A) {
       h += panel(esc(t("formsList")) + " (" + docs.length + ")", '<ul class="lawlist">' + docs.map(function (d) { return "<li>" + docLine(d) + '<span class="tiny">' + t("issuedIn", { p: olinks(issued[d]) }) + "</span></li>"; }).join("") + "</ul>", false);
       var ids = Object.keys(DATA.institutions).sort(function (a, b) { return L(inst(a).name).localeCompare(L(inst(b).name)); });
       h += panel(esc(t("contactsList")) + " (" + ids.length + ")", '<ul class="contacts">' + ids.map(function (id) {
-        var i = inst(id); return '<li id="i-' + id + '"><img src="/assets/img/inst-' + i.pic + '.svg" alt="" width="96" height="60" loading="lazy"><div><b>' + esc(L(i.name)) + '</b><span class="tiny">' + esc(L(i.parent)) + "</span>" + (i.note ? '<span class="notisez">' + esc(L(i.note)) + "</span>" : "") + '<dl class="kvs"><dt>' + esc(t("where")) + "</dt><dd>" + esc(L(i.address)) + "</dd><dt>" + esc(t("hours")) + "</dt><dd>" + esc(L(i.hours)) + "</dd><dt>" + esc(t("phone")) + "</dt><dd>" + esc(i.phone) + "</dd></dl></div></li>";
+        var i = inst(id); return '<li id="i-' + id + '"><img src="/assets/img/inst-' + i.pic + '.jpg" alt="" width="96" height="60" loading="lazy"><div><b>' + esc(L(i.name)) + '</b><span class="tiny">' + esc(L(i.parent)) + "</span>" + (i.note ? '<span class="notisez">' + esc(L(i.note)) + "</span>" : "") + '<dl class="kvs"><dt>' + esc(t("where")) + "</dt><dd>" + esc(L(i.address)) + "</dd><dt>" + esc(t("hours")) + "</dt><dd>" + esc(L(i.hours)) + "</dd><dt>" + esc(t("phone")) + "</dt><dd>" + esc(i.phone) + "</dd></dl></div></li>";
       }).join("") + "</ul>", true);
       h += "</div>";
       $("#app").innerHTML = h; wirePanels($("#app"));
