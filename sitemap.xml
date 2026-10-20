@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://e-irad.org/</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedures.html</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/laws.html</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedures.html?op=import</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedures.html?op=export</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedures.html?op=event</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedures.html?op=business</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedures.html?op=food</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedures.html?op=transit</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedures.html?op=build</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedures.html?op=livestock</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedures.html?op=worker</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=import-eggs</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=export-walnuts</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=export-horses</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=import-cars</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=event-concert</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=business-cafe</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=food-kymyz</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=transit-diesel</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=build-storey</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=livestock-sheep</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=worker-cook</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=eggs-vetpermit</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=eggs-cabi</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=eggs-toponym</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://e-irad.org/procedure.html?id=eggs-candling</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://e-irad.org/status.html</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://e-irad.org/faq.html</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://e-irad.org/contact.html</loc><lastmod>2026-10-20</lastmod></url>

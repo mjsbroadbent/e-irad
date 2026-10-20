@@ -44,23 +44,31 @@
   function badge(st) { return '<span class="badge b-' + st + '">' + esc(t("st_" + st)) + "</span>"; }
 
   /* ---------- chrome ---------- */
-  var NAV = [["home", "/"], ["status", "/status.html"], ["faq", "/faq.html"], ["contact", "/contact.html"], ["login", "/login.html"]];
+  var NAV = [["home", "/"], ["proc", "/procedures.html"], ["services", "/#services"], ["laws", "/laws.html"], ["status", "/status.html"], ["faq", "/faq.html"], ["contact", "/contact.html"], ["login", "/login.html"]];
+  var CUR = { home: "home", service: "services", procedures: "proc", procedure: "proc", laws: "laws" };
+  var LANG_ORDER = ["ir", "ru", "en"];
   function chrome() {
-    var cur = PAGE === "service" ? "home" : PAGE;
+    var cur = CUR[PAGE] || PAGE;
     $("#top").innerHTML =
       '<a class="skip" href="#main">' + esc(t("skip")) + "</a>" +
-      '<div class="govbar"><div class="wrap"><a href="' + GOV + '"><img src="/assets/emblem.svg" alt="" width="18" height="18"> ' + esc(t("gov")) + "</a>" +
-      '<div class="langs" role="group" aria-label="' + esc(t("lang")) + '">' + LANGS.map(function (l) { return '<button type="button" data-lang="' + l + '" aria-pressed="' + (l === LANG) + '">' + esc(I.langs[l]) + "</button>"; }).join("") + "</div></div></div>" +
-      '<header class="head"><div class="wrap"><a class="brand" href="/"><span class="logo" aria-hidden="true">e</span><span><b>e-Irad</b><small>' + esc(t("tag")) + "</small></span></a>" +
-      '<button class="burger" type="button" aria-expanded="false">' + esc(t("menu")) + '</button><nav aria-label="e-Irad"><ul>' +
+      '<div class="topline"><div class="wrap"><span class="welcome">' + esc(t("welcome")) + ' <a href="/#how">' + esc(t("welcomeMore")) + '</a></span>' +
+      '<span class="langs" role="group" aria-label="' + esc(t("lang")) + '">' + LANG_ORDER.map(function (l) { return '<a href="?lang=' + l + '" data-lang="' + l + '" lang="' + I.htmlLang[l] + '"' + (l === LANG ? ' aria-current="true"' : "") + ">" + esc(I.langs[l]) + "</a>"; }).join('<span aria-hidden="true">|</span>') + "</span></div></div>" +
+      '<header class="head"><div class="wrap"><button class="burger" type="button" aria-expanded="false" aria-controls="mainnav"><span class="vh">' + esc(t("menu")) + '</span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>' +
+      '<a class="brand" href="/"><span class="logo" aria-hidden="true">e</span><span class="bt"><b>e-Irad</b><small>' + esc(t("portalSub")) + "</small></span></a>" +
+      '<a class="govlink" href="' + GOV + '" title="' + esc(t("gov")) + '"><img src="/assets/emblem.svg" alt="" width="40" height="40"><span><small>' + esc(t("gov")) + "</small><b>" + esc(t("dic")) + "</b></span></a></div>" +
+      '<nav class="mainnav" id="mainnav" aria-label="e-Irad"><div class="wrap"><ul>' +
       NAV.map(function (n) { return '<li><a href="' + n[1] + '"' + (n[0] === cur ? ' aria-current="page"' : "") + (n[0] === "login" ? ' class="loginlink"' : "") + ">" + esc(t("nav_" + n[0])) + "</a></li>"; }).join("") +
-      "</ul></nav></div></header>" +
+      "</ul></div></nav></header>" +
       '<div class="banner" role="status"><div class="wrap"><span class="dot" aria-hidden="true"></span><span>' + t("banner") + ' <a href="/status.html">' + esc(t("bannerMore")) + "</a></span></div></div>";
     $(".burger").addEventListener("click", function () { var h = $(".head"); var o = !h.classList.contains("open"); h.classList.toggle("open", o); this.setAttribute("aria-expanded", o); });
-    $$("[data-lang]").forEach(function (b) { b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); }); });
-    $("#bottom").innerHTML = '<footer class="foot"><div class="wrap"><div class="fcols"><div><div class="brand small"><span class="logo">e</span><b>e-Irad</b></div><p>' + esc(t("footAbout")) + "</p></div>" +
-      "<div><h4>" + esc(t("footLinks")) + '</h4><ul><li><a href="/status.html">' + esc(t("nav_status")) + '</a></li><li><a href="/faq.html">' + esc(t("nav_faq")) + '</a></li><li><a href="/accessibility.html">' + esc(t("footAcc")) + '</a></li><li><a href="/contact.html">' + esc(t("nav_contact")) + "</a></li></ul></div>" +
-      "<div><h4>" + esc(t("gov")) + '</h4><ul><li><a href="' + GOV + '">' + esc(t("footGov")) + '</a></li><li><a href="' + GOV + 'holidays.html">iradgov.org</a></li></ul><p class="tiny">' + esc(t("noPw")) + "</p></div></div>" +
+    $$("[data-lang]").forEach(function (b) { b.addEventListener("click", function (e) { e.preventDefault(); setLang(b.getAttribute("data-lang")); }); });
+    $("#bottom").innerHTML = '<footer class="foot"><div class="partners"><div class="wrap"><h2>' + esc(t("partnersH")) + '</h2><ul class="plogos">' +
+      [["UNMI", { en: "Trade facilitation programme", ir: "Sooda jeñildetüü programması", ru: "Программа содействия торговле" }, "un"], ["CCI", { en: "Chamber of Commerce and Industry of Irad", ir: "Irad sooda-önör jay palatası", ru: "Торгово-промышленная палата Ирада" }, "cci"], ["IPO", { en: "Investment Promotion Office", ir: "Investitsiyalardı ilgeriletüü keñsesi", ru: "Офис содействия инвестициям" }, "ipo"], ["BS", { en: "Customs Service", ir: "Bajı kızmatı", ru: "Таможенная служба" }, "cus"], ["TSU", { en: "Talas State University", ir: "Talas mamlekettik universiteti", ru: "Таласский государственный университет" }, "tsu"]].map(function (p) {
+        return '<li class="pl pl-' + p[2] + '"><span class="plm">' + esc(p[0]) + "</span><span>" + esc(L(p[1])) + "</span></li>";
+      }).join("") + '</ul><p class="tiny">' + esc(t("credit")) + "</p></div></div>" +
+      '<div class="wrap"><div class="fcols"><div><div class="brand small"><span class="logo">e</span><b>e-Irad</b></div><p>' + esc(t("footAbout")) + "</p><p>" + esc(t("footAddr")) + '<br>+996-39-2-27-14-14 · <a href="mailto:help@e-irad.org">help@e-irad.org</a><br>' + esc(t("footHours")) + "</p></div>" +
+      "<div><h4>" + esc(t("footLinks")) + '</h4><ul><li><a href="/procedures.html">' + esc(t("nav_proc")) + '</a></li><li><a href="/laws.html">' + esc(t("nav_laws")) + '</a></li><li><a href="/status.html">' + esc(t("nav_status")) + '</a></li><li><a href="/faq.html">' + esc(t("nav_faq")) + '</a></li><li><a href="/accessibility.html">' + esc(t("footAcc")) + '</a></li><li><a href="/contact.html">' + esc(t("nav_contact")) + "</a></li></ul></div>" +
+      "<div><h4>" + esc(t("gov")) + '</h4><ul><li><a href="' + GOV + '">' + esc(t("footGov")) + '</a></li><li><a href="' + GOV + 'administration.html">iradgov.org</a></li></ul><p class="tiny">' + esc(t("noPw")) + "</p></div></div>" +
       '<div class="fine">' + esc(t("footCopy", { y: iradNow().getFullYear() })) + "</div></div></footer>";
   }
   function setLang(l) {
@@ -106,22 +114,6 @@
     return '<a class="svc" href="/service.html?id=' + s.id + '" data-kw="' + esc((L(s.name) + " " + L(s.desc) + " " + s.keywords + " " + s.name.en).toLowerCase()) + '">' + icon(s.icon) +
       '<span class="sbody"><span class="sname">' + esc(L(s.name)) + '</span><span class="sdesc">' + esc(L(s.desc)) + "</span>" + badge(s.status) + "</span></a>";
   }
-  function pageHome() {
-    var main = $("#app");
-    main.innerHTML = '<section class="hero"><div class="wrap"><h1>' + esc(t("heroH")) + "</h1><p>" + esc(t("heroP")) + '</p><label class="srch"><span>' + esc(t("search")) + '</span><input type="search" id="q" autocomplete="off" placeholder="' + esc(t("searchPh")) + '"></label></div></section>' +
-      '<div class="wrap page">' + S.cats.map(function (c) {
-        var items = S.list.filter(function (s) { return s.cat === c; });
-        return '<section class="cat" data-cat="' + c + '"><h2>' + esc(t("cat" + c.charAt(0).toUpperCase() + c.slice(1))) + '</h2><div class="svcs">' + items.map(card).join("") + "</div></section>";
-      }).join("") + '<p class="nomatch" hidden>' + esc(t("noMatch")) + '</p><p class="note">' + esc(t("officeHoursNote")) + "</p></div>";
-    var q = $("#q");
-    q.addEventListener("input", function () {
-      var v = q.value.trim().toLowerCase(), any = false;
-      $$(".svc").forEach(function (a) { var ok = !v || a.getAttribute("data-kw").indexOf(v) >= 0; a.hidden = !ok; if (ok) any = true; });
-      $$(".cat").forEach(function (c) { c.hidden = !$$(".svc", c).some(function (a) { return !a.hidden; }); });
-      $(".nomatch").hidden = any;
-    });
-  }
-
   /* ---------- service page ---------- */
   function field(id, label, html) { return '<div class="fld"><label for="' + id + '">' + esc(label) + "</label>" + html + '<span class="err" id="' + id + '-err" hidden>' + esc(t("required")) + "</span></div>"; }
   function sel(id, opts) { return '<select id="' + id + '">' + opts.map(function (o) { return '<option value="' + esc(o[0]) + '">' + esc(o[1]) + "</option>"; }).join("") + "</select>"; }
@@ -523,7 +515,7 @@
     var id = new URLSearchParams(location.search).get("id"), s = svc(id), main = $("#app");
     if (!s) { pageNF(); return; }
     document.title = L(s.name) + " | e-Irad";
-    main.innerHTML = '<div class="wrap page"><p class="crumbs"><a href="/">' + esc(t("back")) + "</a></p>" +
+    main.innerHTML = '<div class="wrap page"><nav class="crumbs"><a href="/">' + esc(t("nav_home")) + '</a> <span class="sep">›</span> <a href="/#services">' + esc(t("nav_services")) + '</a> <span class="sep">›</span> <span>' + esc(L(s.name)) + "</span></nav>" +
       '<div class="svchead">' + icon(s.icon) + "<div><h1>" + esc(L(s.name)) + "</h1><p>" + esc(L(s.desc)) + '</p><p class="agency"><span>' + esc(t("agency")) + ":</span> " + esc(L(s.agency)) + " " + badge(s.status) + "</p></div></div>" +
       '<div class="svcgrid"><div id="flowbox"></div><aside class="help">' + (HELP[id] ? L(HELP[id]) : "") + '<p class="tiny">' + esc(t("offline")) + "</p></aside></div></div>";
     FLOWS[id]($("#flowbox"));
@@ -591,12 +583,13 @@
     document.title = t("nfH") + " | e-Irad";
   }
 
+  var G = window.E_GUIDE({ $: $, $$: $$, esc: esc, t: t, L: L, fmtN: fmtN, som: som, fmtD: fmtD, hash: hash, today: today, S: S, card: card, pageNF: pageNF });
   var TITLES = { status: "nav_status", faq: "faqH", accessibility: "accH", contact: "ctH", login: "loginH" };
   function render() {
     document.documentElement.lang = I.htmlLang[LANG];
     chrome();
     if (TITLES[PAGE]) document.title = t(TITLES[PAGE]) + " | e-Irad"; else if (PAGE === "home") document.title = "e-Irad | " + t("tag");
-    ({ home: pageHome, service: pageService, status: pageStatus, faq: pageFAQ, accessibility: pageAcc, contact: pageContact, login: pageLogin, nf: pageNF }[PAGE] || pageNF)();
+    ({ home: G.home, procedures: G.procedures, procedure: G.procedure, laws: G.laws, service: pageService, status: pageStatus, faq: pageFAQ, accessibility: pageAcc, contact: pageContact, login: pageLogin, nf: pageNF }[PAGE] || pageNF)();
   }
   render();
 })();
