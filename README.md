@@ -14,9 +14,10 @@ DNS: apex A records 185.199.108.153, .109.153, .110.153, .111.153 (AAAA 2606:50c
   scripts make one network request, a GET of `data/procedures.json` (`assets/guide.js`). Every form is handled in
   `assets/app.js` in the browser and its result is worked out from the input (a hash), so the same number always gives
   the same answer. No external fonts: the page uses system fonts.
-- The one outside script is the shared GoatCounter page counter (irad.goatcounter.com, as on every Irad site; Oct
-  2026). It records only the page address (host + path), referrer, browser, screen size and country, never anything
-  typed into a form; e-Irad's form results never go into the address.
+- The outside scripts are the shared GoatCounter page counter (irad.goatcounter.com) and Google Analytics
+  (G-QTS2XFLJD7), as on every Irad site (Oct 2026). They record the page address, referrer, browser, screen size and
+  country, never anything typed into a form; e-Irad's form results never go into the address. Google Analytics sets
+  cookies; GoatCounter doesn't.
 - The only thing stored is the passport queue numbers a visitor takes (`localStorage` `eirad_tickets`, at most six)
   and the language (`eirad_lang`).
 - Services stop before anything sensitive: payments end at "Online payment is available to Talasbank card holders
