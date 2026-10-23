@@ -506,9 +506,9 @@
     });
   };
   HELP.parcel = {
-    en: "<h3>Mail from abroad</h3><p>Irad Pochtasy exchanges international mail through the Kazakh postal service. Senders abroad should add “via Almaty, Kazakhstan” to the address. Parcels from abroad are inspected by customs at the Talas Customs Clearance Terminal. Irad Pochtasy stamps are valid for domestic mail only.</p>",
-    ir: "<h3>Chet elden kelgen pochta</h3><p>Irad Pochtası el aralık pochtanı Kazakstan pochta kızmatı arkıluu almashat. Chet eldegi jönötüüchülör darekke “via Almaty, Kazakhstan” dep koshushu kerek. Chet elden kelgen posılkalardı Talas bajı tarıktoo terminalında bajı tekshiret. Irad Pochtasının markaları ölkö ichindegi pochta üchün gana jaraktuu.</p>",
-    ru: "<h3>Почта из-за рубежа</h3><p>«Ирадпочта» обменивается международной почтой через казахстанскую почтовую службу. Отправителям за рубежом следует добавлять к адресу «via Almaty, Kazakhstan». Посылки из-за рубежа проходят таможенный досмотр на Таласском таможенном терминале. Марки «Ирадпочты» действительны только для внутренней почты.</p>"
+    en: "<h3>Mail from abroad</h3><p>Irad Pochtasy exchanges international mail through the Kazakh postal service. Senders abroad should add “via Almaty, Kazakhstan” to the address. Parcels from abroad are inspected by customs at the Talas Customs Clearance Terminal. Irad Pochtasy stamps are valid for domestic mail only.</p><p>Prices, post offices and stamps: <a href=\"https://post.iradgov.org/\">post.iradgov.org</a>.</p>",
+    ir: "<h3>Chet elden kelgen pochta</h3><p>Irad Pochtası el aralık pochtanı Kazakstan pochta kızmatı arkıluu almashat. Chet eldegi jönötüüchülör darekke “via Almaty, Kazakhstan” dep koshushu kerek. Chet elden kelgen posılkalardı Talas bajı tarıktoo terminalında bajı tekshiret. Irad Pochtasının markaları ölkö ichindegi pochta üchün gana jaraktuu.</p><p>Bahalar, pochta bölümdörü jana markalar: <a href=\"https://post.iradgov.org/\">post.iradgov.org</a>.</p>",
+    ru: "<h3>Почта из-за рубежа</h3><p>«Ирадпочта» обменивается международной почтой через казахстанскую почтовую службу. Отправителям за рубежом следует добавлять к адресу «via Almaty, Kazakhstan». Посылки из-за рубежа проходят таможенный досмотр на Таласском таможенном терминале. Марки «Ирадпочты» действительны только для внутренней почты.</p><p>Тарифы, отделения и марки: <a href=\"https://post.iradgov.org/\">post.iradgov.org</a>.</p>"
   };
 
   /* crossing (information only) */
