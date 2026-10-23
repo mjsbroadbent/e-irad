@@ -325,6 +325,10 @@ a.opt:hover { background: #fff; border-color: var(--blue); }
 .foot a:hover { text-decoration: underline; color: #fff; }
 .foot .brand { margin-bottom: 8px; }
 .foot .tiny { color: #9fb0c0; }
+.foot .tulpar-ch { display: inline-flex; align-items: center; gap: 9px; margin-top: 2px; line-height: 1.25; }
+.foot .tulpar-ch img { width: 20px; height: 20px; border-radius: 5px; flex: none; }
+.foot .tulpar-ch small { display: block; color: #9fb0c0; font-size: .78rem; }
+
 .fine { border-top: 1px solid #ffffff1f; margin-top: 14px; padding-top: 10px; font-size: .76rem; color: #9fb0c0; display: flex; justify-content: space-between; align-items: center; gap: 8px 16px; flex-wrap: wrap; }
 .fmark { display: flex; align-items: center; gap: 6px; color: #fff; font-size: .78rem; font-weight: 600; }
 .fmark img { flex: none; }

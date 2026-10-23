@@ -40,7 +40,7 @@ window.E_I18N = {
       noPw: "e-Irad never asks for your password, your card number or your ID number by e-mail or telephone.",
       nfH: "Page not found", nfP: "This page is not on e-Irad. Services formerly listed on the ministries' id.gov pages are listed on the e-Irad home page.",
       nfHome: "All services",
-      footAbout: "e-Irad is run by the Digital Services Directorate of the Department of Infrastructure and Communications.",
+      footTulpar: "Official channel on Tulpar", footAbout: "e-Irad is run by the Digital Services Directorate of the Department of Infrastructure and Communications.",
       footLinks: "Information", footAcc: "Accessibility", footGov: "Office of the Governor",
       footCopy: "© {y} Department of Infrastructure and Communications, Irad Special Economic Zone.",
       months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -82,7 +82,7 @@ window.E_I18N = {
       noPw: "e-Irad ech kachan e-pochta je telefon arkıluu sırsözüñüzdü, karta nomeriñizdi je jeke nomeriñizdi surabayt.",
       nfH: "Bet tabılgan jok", nfP: "Bul bet e-Iradda jok. Murda ministrlikterdin id.gov betterinde turgan kızmattar e-Iraddın bashkı betinde.",
       nfHome: "Bardık kızmattar",
-      footAbout: "e-Iraddı Infrastruktura jana baylanısh departamentinin Sanariptik kızmattar bashkarmalıgı jürgüzöt.",
+      footTulpar: "Tulpardagı rasmiy kanal", footAbout: "e-Iraddı Infrastruktura jana baylanısh departamentinin Sanariptik kızmattar bashkarmalıgı jürgüzöt.",
       footLinks: "Maalımat", footAcc: "Jetkiliktüülük", footGov: "Gubernatordun apparatı",
       footCopy: "© {y} Infrastruktura jana baylanısh departamenti, Irad Atayın Ekonomikalık Zonası.",
       months: ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr"]
@@ -124,7 +124,7 @@ window.E_I18N = {
       noPw: "e-Irad никогда не запрашивает пароль, номер карты или личный номер по электронной почте или телефону.",
       nfH: "Страница не найдена", nfP: "Этой страницы на e-Irad нет. Услуги, ранее размещённые на страницах министерств в зоне id.gov, перечислены на главной странице e-Irad.",
       nfHome: "Все услуги",
-      footAbout: "e-Irad ведёт Управление цифровых услуг Департамента инфраструктуры и связи.",
+      footTulpar: "Официальный канал в Tulpar", footAbout: "e-Irad ведёт Управление цифровых услуг Департамента инфраструктуры и связи.",
       footLinks: "Информация", footAcc: "Доступность", footGov: "Аппарат губернатора",
       footCopy: "© {y} Департамент инфраструктуры и связи, Особая экономическая зона Ирада.",
       months: ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"]
