@@ -123,10 +123,12 @@ Hire a foreign cook; added 23 Oct: Open a guesthouse (Konok Üy), Import spare p
 foreign crew, Rent a stall at Bazar-i Kalan, Run a taxi, Hold a wedding for more than 300 guests; also added 23 Oct:
 Import medicines for a pharmacy, Export dried apricots to Kazakhstan by rail, Open a bakery with a tandoor in a
 courtyard, Bring a pet dog or cat from abroad, Register a newspaper, magazine or website, Open a private
-kindergarten (ids prefixed `a-`). To add one: institutions, documents and laws first, then the procedures, then the objective;
+kindergarten (ids prefixed `a-`), Drill a well or take irrigation water, Put up a yurt café on a summer pasture, Import a
+tractor, Hold a horse race or ulak tournament, Open a mobile phone shop, Open a currency exchange booth (ids prefixed
+`b-`). To add one: institutions, documents and laws first, then the procedures, then the objective;
 keep institutions and laws consistent with the canon and iradgov.org (existing directive numbers: 2016 decree,
 2022/14, 2026/24, 2026/31; Bank of Irad notices 2026/2, 2026/5), add the objective's `procedure.html?id=` to
-`sitemap.xml`, and check that `ir` strings contain no Cyrillic.
+`sitemap.xml`, and check that `ir` strings contain no Cyrillic, ğ or ş.
 
 Invented for the guide (also noted in the canon): Iradstandart (State Agency for Standards, Metrology and
 Certification) and its IST standards; the State Veterinary Inspectorate of the Talas Basin Agricultural Directorate
