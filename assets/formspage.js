@@ -111,9 +111,9 @@
     render();
 
     // permits and licences: services in the business category and the licence-type services elsewhere
-    var permitIds = S.list.filter(function (s) { return s.cat === "biz" || /permit|licen|pass|registration/i.test(s.name.en); });
+    var permitIds = S.list.filter(function (s) { return s.cat !== "check" && (s.cat === "biz" || /permit|licen|pass|registration/i.test(s.name.en)); });
     document.getElementById("plist").innerHTML = permitIds.map(function (s) {
-      return '<a class="opt" href="/service.html?id=' + s.id + '"><span class="opn">' + esc(L(s.name)) + '</span><span class="opd">' + esc(L(s.agency)) + "</span></a>";
+      return '<a class="opt fmp" href="/service.html?id=' + s.id + '"><span class="opn">' + esc(L(s.name)) + '</span><span class="opd">' + esc(L(s.agency)) + "</span></a>";
     }).join("");
 
     // guides from the step-by-step data

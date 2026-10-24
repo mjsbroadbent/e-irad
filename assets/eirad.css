@@ -481,3 +481,5 @@ ul.plain li { margin: 3px 0; }
   .svcgrid { display: block; }
   .result { border: 0; padding: 0; }
 }
+a.opt.fmp { grid-template-columns: 1fr; gap: 3px; align-content: start; }
+a.opt.fmp .opn, a.opt.fmp .opd { min-width: 0; overflow-wrap: anywhere; }
