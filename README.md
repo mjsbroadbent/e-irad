@@ -120,7 +120,10 @@ Built so far (Oct 2026): Import table eggs (the showpiece: 32 procedures, 63 ste
 issued), Export walnuts, Export an Akyel horse, Import a used car, Hold a concert with performers from abroad, Open a
 café, Sell kymyz from a roadside stand, Diesel in transit, Add a second storey, Move sheep across the Qara-Chik line,
 Hire a foreign cook; added 23 Oct: Open a guesthouse (Konok Üy), Import spare parts by post, Film in Irad with a
-foreign crew, Rent a stall at Bazar-i Kalan, Run a taxi, Hold a wedding for more than 300 guests. To add one: institutions, documents and laws first, then the procedures, then the objective;
+foreign crew, Rent a stall at Bazar-i Kalan, Run a taxi, Hold a wedding for more than 300 guests; also added 23 Oct:
+Import medicines for a pharmacy, Export dried apricots to Kazakhstan by rail, Open a bakery with a tandoor in a
+courtyard, Bring a pet dog or cat from abroad, Register a newspaper, magazine or website, Open a private
+kindergarten (ids prefixed `a-`). To add one: institutions, documents and laws first, then the procedures, then the objective;
 keep institutions and laws consistent with the canon and iradgov.org (existing directive numbers: 2016 decree,
 2022/14, 2026/24, 2026/31; Bank of Irad notices 2026/2, 2026/5), add the objective's `procedure.html?id=` to
 `sitemap.xml`, and check that `ir` strings contain no Cyrillic.
