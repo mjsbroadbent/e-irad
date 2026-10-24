@@ -62,7 +62,7 @@ citizen services) and `assets/guide.js` (business home and the guide). The site 
   portal layout and the guide.
 - `assets/img/`: hero slides and the institution photo cards (`inst-<pic>.jpg`, 480×300: gov, office, post, lab, bank,
   kiosk, depot, yurt, warehouse, stable). Photos generated locally (FLUX.1 Krea + Amateur Photography LoRA 0.6, see
-  irad_wiki `tools/comfyui/`); garbled lettering on signs, plates and posters pixelated, flags repainted crimson.
+  irad_wiki `tools/comfyui/`); garbled lettering on signs, plates and posters pixelated and flags repainted crimson (older practice; since 23 Oct 2026 lettering is never blurred, see RULES 8.3).
 - `assets/services.js`: the catalogue (`list`: id, category, `sec` (`b`, `c` or both, e.g. `bc`), status `ok|limited|maint|off|soon`, names, agency) and
   the passport offices (queue size `base` and numbers served a week `rate`).
 - `assets/app.js`: the flows (`FLOWS.<id>`), their help texts (`HELP.<id>`), the status page (`SYS`, `INC`) and the
