@@ -195,7 +195,7 @@ class Form:
         return str(out)
 
     def barcode(self, x, y, w, h):
-        hsh = hashlib.sha1(self.spec["code"].encode()).digest() * 4
+        hsh = hashlib.sha1(self.spec["code"].encode()).digest() * 8
         xx = x
         i = 0
         self.c.setFillColor(HexColor("#111111"))
@@ -486,7 +486,8 @@ class Form:
             self.text(x + min(w, 42 * mm) / 2, yy - 2, self.wrap(t["ru"], "FI", 5.4, min(w, 42 * mm) - 4 * mm)[0], "FI", 5.4, self.grey(), "c")
 
     def official(self, rows):
-        self.need(40 * mm)
+        total = 12 * mm + sum(max(self.field_h(f) for f in (r if isinstance(r, list) else [r])) + 1.6 * mm for r in rows)
+        self.need(min(total, PH - MT - MB - 20 * mm))
         top = self.y
         self.y -= 3 * mm
         start = self.y
