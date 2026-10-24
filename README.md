@@ -67,7 +67,24 @@ citizen services) and `assets/guide.js` (business home and the guide). The site 
   the passport offices (queue size `base` and numbers served a week `rate`).
 - `assets/app.js`: the flows (`FLOWS.<id>`), their help texts (`HELP.<id>`), the status page (`SYS`, `INC`) and the
   FAQ. To add a service: an entry in `services.js`, a `FLOWS` function (and optional `HELP`) in `app.js`, and a
-  line in `sitemap.xml`.
+  line in `sitemap.xml`. Every service page shows a "Forms for this service" box (`formBox(id)`, in the help column
+  and in results that end at a counter) listing the entries of `window.E_FORMS` (`assets/forms.js`, loaded before
+  `app.js` on every page) whose `service` is the page's id; no box if there are none.
+- Services (41, Oct 2026). Documents: passport queue, address registration, lost ID card, foreign driving licence,
+  change of name, certificate of good conduct, old-age pension, civil certificates. Bills: electricity, water, gas,
+  heating (status `maint`: shows the last completed bill, September, so heating reads "outside the heating season"),
+  property tax, road-use charge, kindergarten fees, traffic fines, and the state duty calculator (`DUTY` in
+  `app.js`: the one table of state duties, used by every service that names one; prints a Talasbank payment order).
+  Checks: parcels, motor policy, firm register, vehicle register (agrees with the motor policy check and the road
+  charge for the same plate), permit and licence numbers, Supreme Court register of pending cases (hearing dates
+  "not yet set" for most), Iradstandart certificates, school leaving examination results. Permits: event, business,
+  census, market trading place, building pre-application (links the guide's Add a second storey), taxi, alcohol,
+  outdoor sign (spelling check for the Toponymic Section: Cyrillic, letters not in Iradi, English-only text), foreign
+  trade participant. Other: crossing the line, hunting and fishing, public gathering notification, Feast of St. Janyl
+  vehicle pass (issued from 1 August), archive copies (ends at a stamped addressed envelope), written appeals
+  (letters@iradgov.org; e-Irad sends nothing), dog registration. The same rule everywhere: lookups are worked out
+  from a hash of the input; applications end at "download the form, block capitals, bring it with the originals";
+  payments end at the Talasbank gateway message.
 
 ## Step-by-step guide to procedures (`data/procedures.json`)
 
@@ -102,7 +119,8 @@ Everything is data. All text is `{"en", "ir", "ru"}` (Iradi in Latin orthography
 Built so far (Oct 2026): Import table eggs (the showpiece: 32 procedures, 63 steps, 28 institutions, 35 documents
 issued), Export walnuts, Export an Akyel horse, Import a used car, Hold a concert with performers from abroad, Open a
 café, Sell kymyz from a roadside stand, Diesel in transit, Add a second storey, Move sheep across the Qara-Chik line,
-Hire a foreign cook. To add one: institutions, documents and laws first, then the procedures, then the objective;
+Hire a foreign cook; added 23 Oct: Open a guesthouse (Konok Üy), Import spare parts by post, Film in Irad with a
+foreign crew, Rent a stall at Bazar-i Kalan, Run a taxi, Hold a wedding for more than 300 guests. To add one: institutions, documents and laws first, then the procedures, then the objective;
 keep institutions and laws consistent with the canon and iradgov.org (existing directive numbers: 2016 decree,
 2022/14, 2026/24, 2026/31; Bank of Irad notices 2026/2, 2026/5), add the objective's `procedure.html?id=` to
 `sitemap.xml`, and check that `ir` strings contain no Cyrillic.

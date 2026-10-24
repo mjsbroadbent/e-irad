@@ -6,7 +6,7 @@ window.E_I18N = {
     en: {
       site: "e-Irad", tag: "Public services online", gov: "Government of the Irad Special Economic Zone",
       skip: "Skip to content", menu: "Menu", lang: "Language",
-      nav_home: "Services", nav_status: "Service availability", nav_faq: "Help", nav_contact: "Contact", nav_login: "My e-Irad",
+      nav_home: "Services", nav_status: "Service availability", nav_faq: "Help", nav_forms: "Permits and forms", nav_contact: "Contact", nav_login: "My e-Irad",
       banner: "<b>Pilot service.</b> Online payment is temporarily unavailable while Talasbank upgrades its payment gateway. Sign-in by Tulpar ID is suspended pending review.",
       bannerMore: "Details",
       heroH: "Public services of the ISEZ, online",
@@ -48,7 +48,7 @@ window.E_I18N = {
     ir: {
       site: "e-Irad", tag: "Mamlekettik kızmattar onlayn", gov: "Irad Atayın Ekonomikalık Zonasının Ökmötü",
       skip: "Mazmunga ötüü", menu: "Menyu", lang: "Til",
-      nav_home: "Kızmattar", nav_status: "Kızmattardın abalı", nav_faq: "Jardam", nav_contact: "Baylanısh", nav_login: "Menin e-Irad",
+      nav_home: "Kızmattar", nav_status: "Kızmattardın abalı", nav_faq: "Jardam", nav_forms: "Uruksattar jana formalar", nav_contact: "Baylanısh", nav_login: "Menin e-Irad",
       banner: "<b>Sınoo kızmatı.</b> Talasbank tölöm shlyuzun jañılap jatkandıktan onlayn tölöm ubaktıluu ishtebeyt. Tulpar ID arkıluu kirüü tekshirüü ayaktaganga cheyin toktotuldu.",
       bannerMore: "Tolugraak",
       heroH: "IAEZdin mamlekettik kızmattarı onlayn",
@@ -90,7 +90,7 @@ window.E_I18N = {
     ru: {
       site: "e-Irad", tag: "Государственные услуги онлайн", gov: "Правительство Особой экономической зоны Ирада",
       skip: "Перейти к содержанию", menu: "Меню", lang: "Язык",
-      nav_home: "Услуги", nav_status: "Доступность услуг", nav_faq: "Помощь", nav_contact: "Контакты", nav_login: "Мой e-Irad",
+      nav_home: "Услуги", nav_status: "Доступность услуг", nav_faq: "Помощь", nav_forms: "Разрешения и формы", nav_contact: "Контакты", nav_login: "Мой e-Irad",
       banner: "<b>Пилотный режим.</b> Онлайн-оплата временно недоступна: «Таласбанк» модернизирует платёжный шлюз. Вход через Tulpar ID приостановлен до завершения проверки.",
       bannerMore: "Подробнее",
       heroH: "Государственные услуги ОЭЗИ онлайн",

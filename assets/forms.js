@@ -57,13 +57,13 @@ window.E_FORMS = {
 "ru": "Мэрии Таласа, Нуржана и Ийык-Джаныла"
 },
 "arch": {
-"en": "Chief Architect's Office, City Hall",
-"ir": "Bashkı arkhitektor keñsesi, meriya",
-"ru": "Управление главного архитектора, мэрия"
+"en": "Architecture and Planning Department, City Hall",
+"ir": "Arkhitektura jana shaar kuruluşu bölümü, meriya",
+"ru": "Управление архитектуры и градостроительства, мэрия"
 },
 "fte": {
 "en": "Irad Foreign Trade Escrow Authority",
-"ir": "Irad Tashkı soodanın eskrou organı",
+"ir": "Irad tashkı sooda eskrou organı",
 "ru": "Орган эскроу внешней торговли Ирада"
 },
 "tso": {
@@ -261,7 +261,8 @@ window.E_FORMS = {
 "ir": "Charbalık subyektti kattoo arızı",
 "ru": "Заявление о регистрации хозяйствующего субъекта"
 },
-"url": "/forms/RF-1.pdf"
+"url": "/forms/RF-1.pdf",
+"kb": 140
 },
 {
 "code": "RF-8",
@@ -273,7 +274,8 @@ window.E_FORMS = {
 "ir": "Firmalar reestrinen köchürmö suroo",
 "ru": "Запрос выписки из Реестра фирм"
 },
-"url": "/forms/RF-8.pdf"
+"url": "/forms/RF-8.pdf",
+"kb": 126
 },
 {
 "code": "CH-31",
@@ -285,7 +287,8 @@ window.E_FORMS = {
 "ir": "Kogomduk ish-chara üchün shaardık uruksatka arız",
 "ru": "Заявление на муниципальное разрешение на проведение мероприятия"
 },
-"url": "/forms/CH-31.pdf"
+"url": "/forms/CH-31.pdf",
+"kb": 137
 },
 {
 "code": "CH-40",
@@ -297,7 +300,8 @@ window.E_FORMS = {
 "ir": "Shaardık bazardan sooda orunun aluu arızı",
 "ru": "Заявление о предоставлении торгового места на муниципальном рынке"
 },
-"url": "/forms/CH-40.pdf"
+"url": "/forms/CH-40.pdf",
+"kb": 133
 },
 {
 "code": "CH-44",
@@ -309,7 +313,8 @@ window.E_FORMS = {
 "ir": "Tışkı jarnama tablichkasın ornotuuga uruksat arızı",
 "ru": "Заявление на разрешение размещения наружной вывески"
 },
-"url": "/forms/CH-44.pdf"
+"url": "/forms/CH-44.pdf",
+"kb": 132
 },
 {
 "code": "CA-6",
@@ -321,7 +326,8 @@ window.E_FORMS = {
 "ir": "Kuruluşka uruksat arızı",
 "ru": "Заявление на разрешение на строительство"
 },
-"url": "/forms/CA-6.pdf"
+"url": "/forms/CA-6.pdf",
+"kb": 139
 },
 {
 "code": "DIC-3",
@@ -333,7 +339,8 @@ window.E_FORMS = {
 "ir": "Jürgünchü taksi litsenziyasına arız",
 "ru": "Заявление на лицензию на перевозку пассажиров такси"
 },
-"url": "/forms/DIC-3.pdf"
+"url": "/forms/DIC-3.pdf",
+"kb": 133
 },
 {
 "code": "ME-17",
@@ -345,7 +352,8 @@ window.E_FORMS = {
 "ir": "Spirt ichimdikterin satuuga litsenziya arızı",
 "ru": "Заявление на лицензию на продажу алкогольной продукции"
 },
-"url": "/forms/ME-17.pdf"
+"url": "/forms/ME-17.pdf",
+"kb": 133
 },
 {
 "code": "FTE-2",
@@ -357,7 +365,8 @@ window.E_FORMS = {
 "ir": "Tashkı sooda katıshuuchusunun kattoo kartochkası",
 "ru": "Регистрационная карточка участника внешнеторговой деятельности"
 },
-"url": "/forms/FTE-2.pdf"
+"url": "/forms/FTE-2.pdf",
+"kb": 132
 },
 {
 "code": "TSO-26",
@@ -369,7 +378,8 @@ window.E_FORMS = {
 "ir": "2026-jılkı charbalık subyektterdin sanak suroo kagazı",
 "ru": "Переписной лист хозяйствующих субъектов 2026"
 },
-"url": "/forms/TSO-26.pdf"
+"url": "/forms/TSO-26.pdf",
+"kb": 138
 },
 {
 "code": "AGR-11",
@@ -381,7 +391,8 @@ window.E_FORMS = {
 "ir": "Añchılık jana balık uloo litsenziyasına arız",
 "ru": "Заявление на лицензию на охоту и рыболовство"
 },
-"url": "/forms/AGR-11.pdf"
+"url": "/forms/AGR-11.pdf",
+"kb": 112
 },
 {
 "code": "CH-50",
@@ -393,7 +404,8 @@ window.E_FORMS = {
 "ir": "Kogomduk chogulush tuuraluu bildirme",
 "ru": "Уведомление о проведении публичного собрания"
 },
-"url": "/forms/CH-50.pdf"
+"url": "/forms/CH-50.pdf",
+"kb": 127
 },
 {
 "code": "IJ-3",
@@ -405,7 +417,8 @@ window.E_FORMS = {
 "ir": "Iyık Janıl mayramında Sobor dobosuna unaa ötkörmösünö arız",
 "ru": "Заявление на пропуск транспорта на Соборный холм в праздник Святой Джаныл"
 },
-"url": "/forms/IJ-3.pdf"
+"url": "/forms/IJ-3.pdf",
+"kb": 129
 },
 {
 "code": "SA-4",
@@ -417,7 +430,8 @@ window.E_FORMS = {
 "ir": "Arkhiv dokumentterinin köchürmölörün suroo",
 "ru": "Запрос копий архивных документов"
 },
-"url": "/forms/SA-4.pdf"
+"url": "/forms/SA-4.pdf",
+"kb": 107
 },
 {
 "code": "OG-1",
@@ -429,7 +443,8 @@ window.E_FORMS = {
 "ir": "Mamlekettik organga jazuu jüzündögü kayrıluu",
 "ru": "Письменное обращение в государственный орган"
 },
-"url": "/forms/OG-1.pdf"
+"url": "/forms/OG-1.pdf",
+"kb": 281
 },
 {
 "code": "TZ-61",
@@ -441,7 +456,8 @@ window.E_FORMS = {
 "ir": "It kattoo kartochkası",
 "ru": "Регистрационная карточка собаки"
 },
-"url": "/forms/TZ-61.pdf"
+"url": "/forms/TZ-61.pdf",
+"kb": 129
 },
 {
 "code": "RG-9",
@@ -453,7 +469,8 @@ window.E_FORMS = {
 "ir": "Kara-Chik liniyasınan ötüü ötkörmösünö arız",
 "ru": "Заявление на пропуск через линию Кара-Чик"
 },
-"url": "/forms/RG-9.pdf"
+"url": "/forms/RG-9.pdf",
+"kb": 131
 },
 {
 "code": "P-2",
@@ -465,7 +482,8 @@ window.E_FORMS = {
 "ir": "Chet elge jönötülgön pochta jönötmölörü üchün bajı deklaratsiyası",
 "ru": "Таможенная декларация на международные почтовые отправления"
 },
-"url": "https://post.iradgov.org/forms/P-2.pdf"
+"url": "https://post.iradgov.org/forms/P-2.pdf",
+"kb": 106
 },
 {
 "code": "P-4",
@@ -477,7 +495,8 @@ window.E_FORMS = {
 "ir": "Posılka jönötüü kagazı",
 "ru": "Сопроводительный адрес к посылке"
 },
-"url": "https://post.iradgov.org/forms/P-4.pdf"
+"url": "https://post.iradgov.org/forms/P-4.pdf",
+"kb": 113
 },
 {
 "code": "P-11",
@@ -489,7 +508,8 @@ window.E_FORMS = {
 "ir": "Ölkö ichindegi akcha kotoruu",
 "ru": "Почтовый перевод по Ираду"
 },
-"url": "https://post.iradgov.org/forms/P-11.pdf"
+"url": "https://post.iradgov.org/forms/P-11.pdf",
+"kb": 112
 },
 {
 "code": "P-15",
@@ -501,7 +521,8 @@ window.E_FORMS = {
 "ir": "Jogolgon pochta jönötmösü boyuncha suroo",
 "ru": "Заявление о розыске почтового отправления"
 },
-"url": "https://post.iradgov.org/forms/P-15.pdf"
+"url": "https://post.iradgov.org/forms/P-15.pdf",
+"kb": 125
 },
 {
 "code": "P-21",
@@ -513,7 +534,8 @@ window.E_FORMS = {
 "ir": "2027-jılga gazeta jana jurnaldarga jazıluu buyurtması",
 "ru": "Абонемент на подписку на газеты и журналы, 2027"
 },
-"url": "https://post.iradgov.org/forms/P-21.pdf"
+"url": "https://post.iradgov.org/forms/P-21.pdf",
+"kb": 121
 },
 {
 "code": "P-27",
@@ -525,7 +547,8 @@ window.E_FORMS = {
 "ir": "Pochtanı jana pensiyanı aluuga ışenim kat",
 "ru": "Доверенность на получение почты и пенсии"
 },
-"url": "https://post.iradgov.org/forms/P-27.pdf"
+"url": "https://post.iradgov.org/forms/P-27.pdf",
+"kb": 101
 },
 {
 "code": "P-30",
@@ -537,7 +560,8 @@ window.E_FORMS = {
 "ir": "Pochta yashıgın ijaraga aluu arızı",
 "ru": "Заявление на аренду абонентского ящика"
 },
-"url": "https://post.iradgov.org/forms/P-30.pdf"
+"url": "https://post.iradgov.org/forms/P-30.pdf",
+"kb": 122
 }
 ]
 };

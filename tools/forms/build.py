@@ -6,7 +6,7 @@
 
 Writes forms/<CODE>.pdf and assets/forms.js (the list the Permits and forms page and the service pages read).
 Form contents are in specs_*.py; the catalogue (codes, titles, issuing bodies, services) is catalog.py.
-Post forms (P-*) are built in the irad-post repo with the same engine.
+Post forms (P-*) are written to ../irad-post/forms/ (a clone of the post site next to this repo).
 """
 import json
 import re
@@ -20,6 +20,7 @@ import engine  # noqa: E402
 
 ROOT = HERE.parent.parent
 OUT = ROOT / "forms"
+POST_OUT = ROOT.parent / "irad-post" / "forms"      # post forms are published on post.iradgov.org
 CYR = re.compile("[Ѐ-ӿ]")
 
 
@@ -77,14 +78,16 @@ def main():
             continue
         c = cat[code]
         spec = dict(spec, code=code, agency=catalog.AG[c[1]], title=c[4])
-        pages = engine.render(OUT / f"{code}.pdf", spec)
+        dest = POST_OUT if c[1] == "post" else OUT
+        dest.mkdir(exist_ok=True)
+        pages = engine.render(dest / f"{code}.pdf", spec)
         print(f"{code}: {pages} page(s)")
         n += 1
     # the list for the site
     out = {"agencies": catalog.AG, "list": []}
     for code, ag, ct, svc, title in catalog.FORMS:
         url = (f"https://post.iradgov.org/forms/{code}.pdf" if ag == "post" else f"/forms/{code}.pdf")
-        f = OUT / f"{code}.pdf"
+        f = (POST_OUT if ag == "post" else OUT) / f"{code}.pdf"
         item = {"code": code, "agency": ag, "cat": ct, "service": svc, "title": title, "url": url}
         if f.exists():
             item["kb"] = round(f.stat().st_size / 1024)

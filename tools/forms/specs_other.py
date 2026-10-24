@@ -363,7 +363,7 @@ FORMS["OG-1"] = {
                 T("public order, courts", "kogomduk tartip, sottor", "общественный порядок, суды"), T("transport and roads", "transport jana joldor", "транспорт и дороги"), T("taxes and duties", "salıktar jana bajılar", "налоги и пошлины"),
                 T("documents and registration", "dokumentter jana kattoo", "документы и регистрация"), T("trade and business", "sooda jana biznes", "торговля и предпринимательство"), T("other", "bashka", "иное"),
             ], "cols": 3},
-            [{"k": "check", "l": T("Have you appealed on this question before?", "Bul masele boyuncha murda kayrıldıñızbı?", "Обращались ли вы по этому вопросу ранее?"), "opts": [YES, NO], "cols": 2, "w": 1.2},
+            [{"k": "check", "l": T("Have you appealed on this question before?", "Murda kayrıldıñızbı?", "Обращались ранее?"), "opts": [YES, NO], "cols": 2, "w": 1.2},
              {"k": "boxes", "l": T("If yes: registration No. of the earlier appeal or reply", "Ooba bolso: murdagı kayrıluunun je jooptun kattoo No.", "Если да: рег. № прежнего обращения или ответа"), "n": 10, "w": 1.4}, {"k": "date", "l": "date", "w": 1}],
         ]},
         {"t": T("Text of the appeal", "Kayrıluunun teksti", "Текст обращения"), "rows": [

@@ -35,15 +35,20 @@
       post: { en: "Post", ir: "Pochta", ru: "Почта" }
     }
   };
-  var LANG = "en";
-  try { var sv = localStorage.getItem("eirad_lang"); if (sv) LANG = sv; } catch (e) {}
-  var q = new URLSearchParams(location.search);
-  if (["en", "ir", "ru"].indexOf(q.get("lang")) >= 0) LANG = q.get("lang");
+  var LANG = "en", q = new URLSearchParams(location.search);
+  function getLang() {
+    var l = "en";
+    try { var sv = localStorage.getItem("eirad_lang"); if (sv) l = sv; } catch (e) {}
+    q = new URLSearchParams(location.search);
+    if (["en", "ir", "ru"].indexOf(q.get("lang")) >= 0) l = q.get("lang");
+    return l;
+  }
   function L(o, v) { var s = o == null ? "" : (typeof o === "string" ? o : (o[LANG] != null ? o[LANG] : o.en)); return v ? String(s).replace(/\{(\w+)\}/g, function (m, k) { return v[k] != null ? v[k] : m; }) : s; }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   var PDF = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>';
 
   window.E_FORMSPAGE = function () {
+    LANG = getLang();
     var F = window.E_FORMS || { list: [], agencies: {} }, S = window.E_SERVICES || { list: [] };
     var svcById = {};
     S.list.forEach(function (s) { svcById[s.id] = s; });

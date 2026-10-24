@@ -93,6 +93,216 @@ window.E_SERVICES = {
       desc: { en: "Copies of civil registration certificates.", ir: "Jarandık abal aktılarının kübölüktörünün köchürmölörü.", ru: "Копии свидетельств о регистрации актов гражданского состояния." },
       agency: { en: "District civil registry offices", ir: "Aymaktık JAAK bölümdörü", ru: "Районные отделы ЗАГС" },
       keywords: "birth marriage certificate civil registry nike загс свидетельство"
+    },
+    {
+      id: "address", cat: "people", sec: "c", status: "limited", icon: "home",
+      name: { en: "Address registration", ir: "Jashoo jayı boyuncha kattoo", ru: "Регистрация по месту жительства" },
+      desc: { en: "Notify a change of residence within ten days of moving.", ir: "Köchköndön kiyin on kündün ichinde jashoo jayın özgörtköönüzdü kabarlañız.", ru: "Уведомите о перемене места жительства в течение десяти дней после переезда." },
+      agency: { en: "Passport and Residence Service, Ministry of Internal Security", ir: "Pasport jana jashoo jayı kızmatı, Ichki koopsuzduk ministrligi", ru: "Служба паспортов и регистрации, Министерство внутренней безопасности" },
+      keywords: "address residence registration moving propiska darek kattoo köchüü адрес прописка регистрация переезд"
+    },
+    {
+      id: "lostid", cat: "people", sec: "c", status: "limited", icon: "id",
+      name: { en: "Replace a lost or damaged ID card", ir: "Jogolgon je buzulgan ID-kartanı almashtıruu", ru: "Замена утерянной или повреждённой ID-карты" },
+      desc: { en: "What to do, in what order, when your ID card is lost, stolen or damaged.", ir: "ID-kartañız jogolso, uurdalsa je buzulsa emne kıluu kerek jana kaysı tartipte.", ru: "Что и в каком порядке делать, если ID-карта утеряна, украдена или повреждена." },
+      agency: { en: "Passport and Residence Service, Ministry of Internal Security", ir: "Pasport jana jashoo jayı kızmatı, Ichki koopsuzduk ministrligi", ru: "Служба паспортов и регистрации, Министерство внутренней безопасности" },
+      keywords: "lost stolen damaged id card identity replace jogolgon uurdalgan karta утеря кража удостоверение замена"
+    },
+    {
+      id: "licence", cat: "people", sec: "c", status: "limited", icon: "car",
+      name: { en: "Exchange a foreign driving licence", ir: "Chet eldik aydoochuluk kübölügün almashtıruu", ru: "Обмен иностранного водительского удостоверения" },
+      desc: { en: "Whether your licence is exchanged with or without examination, and what to bring.", ir: "Kübölügüñüz sınak menen je sınaksız almashtırılabı jana emne ala kelüü kerek.", ru: "Обменивается ли удостоверение с экзаменом или без и что принести." },
+      agency: { en: "Highway Patrol Corps, Republican Gendarmerie", ir: "Avtojol patrul korpusu, Respublikalık jandarmeriya", ru: "Корпус дорожного патруля, Республиканская жандармерия" },
+      keywords: "driving licence license exchange foreign aydoochuluk prava права водительское обмен"
+    },
+    {
+      id: "namechange", cat: "people", sec: "c", status: "limited", icon: "doc",
+      name: { en: "Change of name", ir: "Attı özgörtüü", ru: "Перемена имени" },
+      desc: { en: "Change a surname, first name or patronymic, and the list of everything to change afterwards.", ir: "Famılıyanı, attı je atasının atın özgörtüü jana andan kiyin özgörtülüüchü bardık nerselerdin tizmesi.", ru: "Перемена фамилии, имени или отчества и список всего, что нужно поменять потом." },
+      agency: { en: "District civil registry offices", ir: "Aymaktık JAAK bölümdörü", ru: "Районные отделы ЗАГС" },
+      keywords: "name change surname uulu kyzy famılıya at фамилия имя перемена загс"
+    },
+    {
+      id: "conduct", cat: "people", sec: "c", status: "limited", icon: "shield",
+      name: { en: "Certificate of good conduct", ir: "Sottolbogonduk tuuraluu maalımkat", ru: "Справка о несудимости" },
+      desc: { en: "Request a certificate that records show no conviction, for work, study or a visa.", ir: "Jumush, okuu je viza üchün sottoluu jok ekeni tuuraluu maalımkat surañız.", ru: "Запрос справки об отсутствии судимости для работы, учёбы или визы." },
+      agency: { en: "Ministry of Internal Security, Records Department", ir: "Ichki koopsuzduk ministrligi, Esepke aluu departamenti", ru: "Министерство внутренней безопасности, Учётный департамент" },
+      keywords: "good conduct criminal record police certificate sottolbogonduk справка несудимость"
+    },
+    {
+      id: "pension", cat: "people", sec: "c", status: "limited", icon: "coin",
+      name: { en: "Apply for an old-age pension", ir: "Karılık pensiyasına arız berüü", ru: "Назначение пенсии по возрасту" },
+      desc: { en: "Check when you can apply, an indicative amount and the documents. Pensions are paid at Irad Pochtasy counters from the 10th.", ir: "Kachan arız berüügö bolorun, boljoldoo summanı jana dokumentterdi tekshiriñiz. Pensiyalar aydın 10-kününön Irad Pochtasının kassalarında tölönöt.", ru: "Когда подавать, ориентировочная сумма и документы. Пенсии выплачиваются в окошках «Ирадпочты» с 10-го числа." },
+      agency: { en: "Social Fund of the ISEZ; payments through Irad Pochtasy", ir: "IAEZdin Sotsialdık fondu; tölömdör Irad Pochtası arkıluu", ru: "Социальный фонд ОЭЗИ; выплаты через «Ирадпочту»" },
+      keywords: "pension old age retirement social fund pensiya пенсия социальный фонд"
+    },
+    {
+      id: "gas", cat: "pay", sec: "c", status: "limited", icon: "flame",
+      name: { en: "Household gas bill", ir: "Turmushtuk gaz üchün esep", ru: "Счёт за газ" },
+      desc: { en: "See your gas bill and meter readings in Talas and Nurzhan by personal account number.", ir: "Talas jana Nurzhandagı gaz esebiñizdi jana hisoochtun körsötküchün jeke esep nomeri boyuncha köruñüz.", ru: "Счёт за газ и показания счётчика в Таласе и Нуржане по номеру лицевого счёта." },
+      agency: { en: "City gas services of Talas and Nurzhan", ir: "Talas jana Nurzhan shaardık gaz kızmattarı", ru: "Городские газовые службы Таласа и Нуржана" },
+      keywords: "gas bill meter gaz esep газ счёт"
+    },
+    {
+      id: "heating", cat: "pay", sec: "c", status: "maint", icon: "heat",
+      name: { en: "District heating bill", ir: "Shaardık jılytuu üchün esep", ru: "Счёт за отопление" },
+      desc: { en: "Heating and hot water charges of the Talas and Nurzhan heating enterprises.", ir: "Talas jana Nurzhan jılytuu ishkanalarının jılytuu jana ısık suu tölömdörü.", ru: "Начисления Таласского и Нуржанского теплопредприятий за отопление и горячую воду." },
+      agency: { en: "Talas Heating Enterprise and Nurzhan Heating Enterprise", ir: "Talas jana Nurzhan jılytuu ishkanaları", ru: "Таласское и Нуржанское теплопредприятия" },
+      keywords: "heating hot water radiator jılytuu ısık suu отопление горячая вода теплосеть"
+    },
+    {
+      id: "proptax", cat: "pay", sec: "c", status: "limited", icon: "home",
+      name: { en: "Property tax for individuals", ir: "Jeke adamdardın mülk salıgı", ru: "Налог на имущество физических лиц" },
+      desc: { en: "Calculate the tax on a flat, house, land plot, garage or yurt.", ir: "Kvartiraga, üygö, jer tilkesine, garajga je boz üygö salıktı esepteñiz.", ru: "Расчёт налога на квартиру, дом, участок, гараж или юрту." },
+      agency: { en: "Tax Service, Ministry of Finance", ir: "Salık kızmatı, Finans ministrligi", ru: "Налоговая служба, Министерство финансов" },
+      keywords: "property tax house flat land yurt mülk salık налог имущество юрта"
+    },
+    {
+      id: "roadcharge", cat: "pay", sec: "c", status: "limited", icon: "car",
+      name: { en: "Annual road-use charge", ir: "Jıldık jol paydalanuu tölömü", ru: "Ежегодный дорожный сбор" },
+      desc: { en: "Check whether this year's charge for a vehicle has been paid.", ir: "Unaa üchün bıylkı tölöm tölöngönün tekshiriñiz.", ru: "Проверьте, оплачен ли дорожный сбор за этот год." },
+      agency: { en: "Department of Infrastructure and Communications", ir: "Infrastruktura jana baylanısh departamenti", ru: "Департамент инфраструктуры и связи" },
+      keywords: "road charge vehicle tax sticker jol tölöm дорожный сбор наклейка"
+    },
+    {
+      id: "duty", cat: "pay", sec: "cb", status: "ok", icon: "calc",
+      name: { en: "State duty calculator", ir: "Mamlekettik alım kalkulyatoru", ru: "Калькулятор госпошлины" },
+      desc: { en: "Duties for passports, certificates, registrations and licences, with a payment order to print.", ir: "Pasporttor, kübölüktör, kattoo jana litsenziyalar üchün alımdar, basıla turgan tölöm tapshırması menen.", ru: "Пошлины за паспорта, свидетельства, регистрацию и лицензии, с платёжным поручением для печати." },
+      agency: { en: "Tax Service, Ministry of Finance; payment orders approved by the Bank of Irad", ir: "Salık kızmatı, Finans ministrligi; Irad Bankı bekitken tölöm tapshırmaları", ru: "Налоговая служба, Министерство финансов; платёжные поручения утверждены Банком Ирада" },
+      keywords: "state duty fee payment order calculator alım tölöm tapshırması госпошлина платёжное поручение"
+    },
+    {
+      id: "kindergarten", cat: "pay", sec: "c", status: "limited", icon: "blocks",
+      name: { en: "Kindergarten fees", ir: "Baldar bakchasının akısı", ru: "Плата за детский сад" },
+      desc: { en: "See the monthly parents' fee and meals by the child's personal account.", ir: "Balanın jeke esebi boyuncha ata-enelerdin aylık tölömün jana tamak akısın köruñüz.", ru: "Ежемесячная родительская плата и питание по лицевому счёту ребёнка." },
+      agency: { en: "Education departments of the city halls of Talas, Nurzhan and Iyık Janyl", ir: "Talas, Nurzhan jana Iyık Janıl meriyalarının bilim berüü bölümdörü", ru: "Отделы образования мэрий Таласа, Нуржана и Ийык-Джаныла" },
+      keywords: "kindergarten nursery fee bakcha детский сад плата"
+    },
+    {
+      id: "firmcheck", cat: "check", sec: "bc", status: "ok", icon: "search",
+      name: { en: "Is this firm registered?", ir: "Bul firma kattalganbı?", ru: "Зарегистрирована ли фирма?" },
+      desc: { en: "Search the Register of Firms by name or registration number.", ir: "Firmalar reestrinen at je kattoo nomeri boyuncha izdeñiz.", ru: "Поиск в Реестре фирм по названию или регистрационному номеру." },
+      agency: { en: "Register of Firms, Ministry of Economy", ir: "Firmalar reestri, Ekonomika ministrligi", ru: "Реестр фирм, Министерство экономики" },
+      keywords: "firm company register check lookup firma reestr фирма реестр проверка"
+    },
+    {
+      id: "vehicle", cat: "check", sec: "c", status: "ok", icon: "car",
+      name: { en: "Vehicle registration check", ir: "Unaanın kattoosun tekshirüü", ru: "Проверка регистрации ТС" },
+      desc: { en: "Make, year, inspection, road charge, policy and restrictions by registration plate.", ir: "Mamlekettik nomer boyuncha markası, jılı, karoo, jol tölömü, polis jana cheklöölör.", ru: "Марка, год, техосмотр, дорожный сбор, полис и ограничения по госномеру." },
+      agency: { en: "Highway Patrol Corps, Republican Gendarmerie (vehicle register)", ir: "Avtojol patrul korpusu, Respublikalık jandarmeriya (unaa reestri)", ru: "Корпус дорожного патруля, Республиканская жандармерия (реестр ТС)" },
+      keywords: "vehicle car plate registration check unaa nomer машина госномер проверка"
+    },
+    {
+      id: "permitcheck", cat: "check", sec: "bc", status: "ok", icon: "stamp",
+      name: { en: "Check a permit or licence", ir: "Uruksattı je litsenziyanı tekshirüü", ru: "Проверка разрешения или лицензии" },
+      desc: { en: "Event permits, taxi and alcohol licences and market trading places, by number.", ir: "Ish-chara uruksattarı, taksi jana alkogol litsenziyaları jana bazardagı sooda orundarı, nomer boyuncha.", ru: "Разрешения на мероприятия, лицензии такси и на алкоголь, торговые места на рынках, по номеру." },
+      agency: { en: "City halls; Department of Infrastructure and Communications; Licensing Division, Ministry of Economy", ir: "Meriyalar; Infrastruktura jana baylanısh departamenti; Ekonomika ministrliginin Litsenziyaloo bölümü", ru: "Мэрии; Департамент инфраструктуры и связи; Отдел лицензирования Министерства экономики" },
+      keywords: "permit licence license check taxi alcohol market uruksat litsenziya разрешение лицензия проверка"
+    },
+    {
+      id: "court", cat: "check", sec: "c", status: "ok", icon: "scales",
+      name: { en: "Status of a case", ir: "Ishtin abalı", ru: "Статус дела" },
+      desc: { en: "Look up a case on the Supreme Court's register of pending cases.", ir: "Jogorku sottun karaluuchu ishter reestrinen ishti tabıñız.", ru: "Найдите дело в реестре рассматриваемых дел Верховного суда." },
+      agency: { en: "Supreme Court of Irad, Registry", ir: "Irad Jogorku sotu, registratura", ru: "Верховный суд Ирада, канцелярия" },
+      keywords: "court case supreme hearing register sot ish суд дело верховный"
+    },
+    {
+      id: "certcheck", cat: "check", sec: "bc", status: "limited", icon: "stamp",
+      name: { en: "Is this product certified?", ir: "Bul tovar sertifikattalganbı?", ru: "Сертифицирован ли товар?" },
+      desc: { en: "Check an Iradstandart certificate of conformity by number.", ir: "Iradstandarttın shaykeshtik sertifikatın nomeri boyuncha tekshiriñiz.", ru: "Проверка сертификата соответствия «Ирадстандарта» по номеру." },
+      agency: { en: "Iradstandart, State Agency for Standards, Metrology and Certification", ir: "Iradstandart, Standartizatsiya, metrologiya jana sertifikattoo mamlekettik agenttigi", ru: "«Ирадстандарт», Государственное агентство по стандартизации, метрологии и сертификации" },
+      keywords: "certificate conformity product standard iradstandart IST sertifikat сертификат стандарт"
+    },
+    {
+      id: "exams", cat: "check", sec: "c", status: "ok", icon: "cap",
+      name: { en: "School leaving examination results", ir: "Mektep bütürüü sınaktarının jıyıntıktarı", ru: "Результаты выпускных экзаменов" },
+      desc: { en: "Results of this year's examinations by candidate number.", ir: "Bıylkı sınaktardın jıyıntıktarı talapkerdin nomeri boyuncha.", ru: "Результаты экзаменов этого года по номеру участника." },
+      agency: { en: "Republican Testing Centre", ir: "Respublikalık testirlöö borboru", ru: "Республиканский центр тестирования" },
+      keywords: "exam results school testing sınak mektep экзамен результаты тестирование школа"
+    },
+    {
+      id: "stall", cat: "biz", sec: "bc", status: "limited", icon: "shop",
+      name: { en: "Trading place at a municipal market", ir: "Shaardık bazardagı sooda ordu", ru: "Торговое место на муниципальном рынке" },
+      desc: { en: "Day places, monthly and annual places and the waiting list.", ir: "Bir kündük, aylık jana jıldık orundar jana kezek tizmesi.", ru: "Места на день, на месяц и на год и лист ожидания." },
+      agency: { en: "City halls: market administrations", ir: "Meriyalar: bazar administratsiyaları", ru: "Мэрии: администрации рынков" },
+      keywords: "market stall bazaar trading place bazar sooda ordu рынок базар торговое место"
+    },
+    {
+      id: "building", cat: "biz", sec: "bc", status: "limited", icon: "crane",
+      name: { en: "Building permit pre-application", ir: "Kurulush uruksatına aldın ala arız", ru: "Предварительная заявка на разрешение на строительство" },
+      desc: { en: "The approvals you need before the permit, for a house, an extension, a second storey or a fence.", ir: "Üy, kosumcha, ekinchi kabat je tosmo üchün uruksatka cheyin kerektüü makuldashuular.", ru: "Согласования до получения разрешения: дом, пристройка, второй этаж или забор." },
+      agency: { en: "Architecture and Planning Department, City Hall", ir: "Meriyanın arkhitektura jana shaar kurulushu bölümü", ru: "Управление архитектуры и градостроительства мэрии" },
+      keywords: "building permit construction storey extension fence kurulush uruksat строительство разрешение этаж"
+    },
+    {
+      id: "taxi", cat: "biz", sec: "bc", status: "limited", icon: "car",
+      name: { en: "Passenger taxi licence", ir: "Jürgünchü taksi litsenziyası", ru: "Лицензия на пассажирское такси" },
+      desc: { en: "Vehicle and driver requirements and the city quotas.", ir: "Unaaga jana aydoochuga talaptar jana shaardık kvotalar.", ru: "Требования к автомобилю и водителю и городские квоты." },
+      agency: { en: "Department of Infrastructure and Communications", ir: "Infrastruktura jana baylanısh departamenti", ru: "Департамент инфраструктуры и связи" },
+      keywords: "taxi licence license cab taksi litsenziya такси лицензия"
+    },
+    {
+      id: "alcohol", cat: "biz", sec: "b", status: "limited", icon: "bottle",
+      name: { en: "Licence to sell alcoholic beverages", ir: "Alkogoldük ichimdikterdi satuu litsenziyası", ru: "Лицензия на продажу алкогольной продукции" },
+      desc: { en: "Check whether premises can be licensed and prepare the application.", ir: "Jaydı litsenziyaloogo bolorun tekshirip, arız dayardañız.", ru: "Проверьте, можно ли лицензировать помещение, и подготовьте заявление." },
+      agency: { en: "Licensing Division, Ministry of Economy", ir: "Litsenziyaloo bölümü, Ekonomika ministrligi", ru: "Отдел лицензирования, Министерство экономики" },
+      keywords: "alcohol licence license liquor beer vodka alkogol litsenziya алкоголь лицензия"
+    },
+    {
+      id: "sign", cat: "biz", sec: "b", status: "limited", icon: "sign",
+      name: { en: "Outdoor sign permit", ir: "Tıshkı tabelaga uruksat", ru: "Разрешение на наружную вывеску" },
+      desc: { en: "Permit for a shop sign, with a check of its spelling in Iradi for the Toponymic Section of the State Archives.", ir: "Dükön tabelasına uruksat, Mamlekettik arkhivdin Toponimika bölümü üchün irad tilinde jazılıshın tekshirüü menen.", ru: "Разрешение на вывеску с проверкой написания на ирадском языке для Топонимического отдела Государственного архива." },
+      agency: { en: "City halls; Toponymic Section of the State Archives", ir: "Meriyalar; Mamlekettik arkhivdin Toponimika bölümü", ru: "Мэрии; Топонимический отдел Государственного архива" },
+      keywords: "sign signboard outdoor advertising spelling tabela jarnama вывеска реклама"
+    },
+    {
+      id: "trader", cat: "biz", sec: "b", status: "limited", icon: "doc",
+      name: { en: "Registration as a foreign trade participant", ir: "Tashkı sooda katıshuuchusu katarı kattoo", ru: "Регистрация участника внешней торговли" },
+      desc: { en: "Register with the Irad Foreign Trade Escrow Authority before your first import or export contract.", ir: "Birinchi import je eksport kelishimiñizge cheyin Irad tashkı sooda eskrou organında kattalıñız.", ru: "Зарегистрируйтесь в Ирадском органе внешнеторгового эскроу до первого импортного или экспортного контракта." },
+      agency: { en: "Irad Foreign Trade Escrow Authority", ir: "Irad tashkı sooda eskrou organı", ru: "Ирадский орган внешнеторгового эскроу" },
+      keywords: "foreign trade escrow import export registration eskrou tashkı sooda эскроу внешняя торговля импорт экспорт"
+    },
+    {
+      id: "hunting", cat: "other", sec: "c", status: "limited", icon: "fish",
+      name: { en: "Hunting and fishing licence", ir: "Añchılık jana balık uuloo litsenziyası", ru: "Лицензия на охоту и рыболовство" },
+      desc: { en: "Seasons, fees and rules for fishing and for small game, waterfowl and wild boar.", ir: "Balık uuloo, mayda añ, suu kushtarı jana kaban üchün mezgilder, akılar jana erejeler.", ru: "Сезоны, сборы и правила для рыбалки, мелкой и водоплавающей дичи и кабана." },
+      agency: { en: "Talas Basin Agricultural Directorate, Hunting and Fisheries Section", ir: "Talas basseyninin aylı charba direktsiyası, Añchılık jana balık charba bölümü", ru: "Таласское бассейновое управление сельского хозяйства, отдел охоты и рыболовства" },
+      keywords: "hunting fishing licence license añchılık balık охота рыбалка лицензия"
+    },
+    {
+      id: "gathering", cat: "other", sec: "c", status: "limited", icon: "people",
+      name: { en: "Notification of a public gathering", ir: "Kogomduk chogulush tuuraluu kabarlama", ru: "Уведомление о публичном собрании" },
+      desc: { en: "Ten days' notice, designated places and the organiser's responsibilities.", ir: "On kün murun kabarloo, belgilengen jerler jana uyushturuuchunun mildetteri.", ru: "Уведомление за десять дней, отведённые места и обязанности организатора." },
+      agency: { en: "City halls of Talas, Nurzhan and Iyık Janyl", ir: "Talas, Nurzhan jana Iyık Janıl meriyaları", ru: "Мэрии Таласа, Нуржана и Ийык-Джаныла" },
+      keywords: "gathering meeting assembly notification chogulush kabarlama собрание митинг уведомление"
+    },
+    {
+      id: "feastpass", cat: "other", sec: "c", status: "soon", icon: "ticket",
+      name: { en: "Vehicle pass to Cathedral Hill for the Feast of St. Janyl", ir: "Janıl Mayramına Chirköö döbösünö unaa ötkörmösü", ru: "Пропуск на Соборный холм на праздник Святой Джаныл" },
+      desc: { en: "Passes for 24 August, issued from 1 August, with quotas by category.", ir: "24-avgustka ötkörmölör, 1-avgusttan tartip berilet, kategoriyalar boyuncha kvotalar menen.", ru: "Пропуска на 24 августа выдаются с 1 августа, с квотами по категориям." },
+      agency: { en: "City Hall of Iyık Janyl; city police", ir: "Iyık Janıl meriyası; shaar politsiyası", ru: "Мэрия Ийык-Джаныла; городская полиция" },
+      keywords: "feast janyl cathedral hill pass pilgrimage iyık janyl mayram ötkörmö праздник джаныл собор пропуск паломничество"
+    },
+    {
+      id: "archive", cat: "other", sec: "c", status: "limited", icon: "archive",
+      name: { en: "Copies of archival documents", ir: "Arkhivdik dokumentterdin köchürmölörü", ru: "Копии архивных документов" },
+      desc: { en: "Request copies from the State Archives by post: earnings for a pension, military records, family history.", ir: "Mamlekettik arkhivden köchürmölördü pochta arkıluu surañız: pensiya üchün emgek akı, askerdik dokumentter, uruk tarıkhı.", ru: "Запрос копий в Государственном архиве по почте: заработок для пенсии, военные документы, история семьи." },
+      agency: { en: "State Archives of Irad", ir: "Irad mamlekettik arkhivi", ru: "Государственный архив Ирада" },
+      keywords: "archive archives copies records genealogy sanjyra arkhiv köchürmö архив копии справка"
+    },
+    {
+      id: "appeal", cat: "other", sec: "c", status: "ok", icon: "mail",
+      name: { en: "Written appeal to a state body", ir: "Mamlekettik organga jazuu jüzündögü kayrıluu", ru: "Письменное обращение в государственный орган" },
+      desc: { en: "Where to send an appeal, a request or a complaint, and when to expect an answer.", ir: "Kayrıluunu, suroonu je dattanuunu kayda jönötüü jana jooptu kachan kütüü kerek.", ru: "Куда направить обращение, заявление или жалобу и когда ждать ответа." },
+      agency: { en: "Office of the Governor, Letters and Appeals Section", ir: "Gubernator keñsesi, Kattar jana kayrıluular bölümü", ru: "Канцелярия Губернатора, отдел писем и обращений" },
+      keywords: "appeal letter complaint petition governor kayrıluu daттanuu обращение жалоба письмо"
+    },
+    {
+      id: "dog", cat: "other", sec: "c", status: "limited", icon: "paw",
+      name: { en: "Dog registration", ir: "Itti kattoo", ru: "Регистрация собаки" },
+      desc: { en: "Register a dog and get its tag in Talas, Nurzhan and Iyık Janyl.", ir: "Talas, Nurzhan jana Iyık Janılda itti kattap, anın belgisin alıñız.", ru: "Регистрация собаки и жетон в Таласе, Нуржане и Ийык-Джаныле." },
+      agency: { en: "City sanitation enterprises (Tazalık) of Talas, Nurzhan and Iyık Janyl", ir: "Talas, Nurzhan jana Iyık Janıldın shaardık tazalık ishkanaları (Tazalık)", ru: "Городские предприятия по санитарной очистке («Тазалык») Таласа, Нуржана и Ийык-Джаныла" },
+      keywords: "dog registration tag tazalık it kattoo собака регистрация жетон"
     }
   ]
 };

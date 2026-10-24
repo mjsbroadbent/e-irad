@@ -442,3 +442,42 @@ ul.plain li { margin: 3px 0; }
   a { color: #000; text-decoration: none; }
   .stn { border: 1px solid #000; color: #000; background: #fff !important; }
 }
+
+/* Permits and forms page */
+.fmfilter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.fmfilter input { flex: 1 1 260px; padding: 7px 9px; border: 1px solid var(--line); font: inherit; }
+.fmfilter select { flex: 0 1 340px; padding: 6px; border: 1px solid var(--line); font: inherit; max-width: 100%; }
+.fmcats { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0 8px; }
+.fmcats button { border: 1px solid var(--blue-line); background: var(--blue-soft); color: var(--blue-2); padding: 4px 10px; font: inherit; font-size: .85rem; cursor: pointer; }
+.fmcats button[aria-pressed="true"] { background: var(--blue); color: #fff; border-color: var(--blue); }
+.fmh { font-size: .95rem; margin: 14px 0 6px; color: var(--blue-2); }
+.fmt { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.fmt th { text-align: left; background: #eef2f6; border: 1px solid var(--line); padding: 5px 7px; font-size: .8rem; }
+.fmt td { border: 1px solid var(--line); padding: 5px 7px; vertical-align: top; }
+.fmc { font-weight: 700; white-space: nowrap; }
+.fmpdf { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; font-weight: 600; }
+@media (max-width: 700px) {
+  .fmt thead { display: none; }
+  .fmt tr { display: block; border: 1px solid var(--line); margin-bottom: 6px; background: #fff; }
+  .fmt td { display: block; border: 0; padding: 3px 8px; }
+}
+
+/* Forms box on service pages (window.E_FORMS) and the state duty payment order */
+.formbox { border: 1px solid var(--blue-line); background: var(--blue-soft); padding: 8px 12px; margin: 12px 0 4px; font-size: .88rem; }
+.formbox h4 { margin: 0 0 4px; color: var(--blue-2); }
+.formbox ul { margin: 0; padding-left: 18px; }
+.formbox li { margin: 3px 0; }
+.formbox .fcode { color: var(--muted); font-size: .8rem; white-space: nowrap; font-family: Consolas, "Courier New", monospace; }
+.formbox .tiny { margin: 6px 0 0; }
+.help .formbox { margin: 10px 0; }
+.svcgrid > * { min-width: 0; }
+.dutytbl td:first-child { width: 1%; }
+.dutytbl input[type=number] { font: inherit; padding: 2px 4px; border: 1px solid #a9b3bc; }
+.porder { border: 1px solid var(--ink-2); padding: 10px 12px; background: #fff; }
+.porder h3 { margin: 0 0 8px; font-size: 1rem; }
+.porder .tw { margin: 8px 0; }
+@media print {
+  .page form.flow, .help, .paybox, .formbox, .svchead .sic, #duprint { display: none !important; }
+  .svcgrid { display: block; }
+  .result { border: 0; padding: 0; }
+}
